@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp } from 'lucide-react';
-
+import Navigation from './nav';
 // Custom hook for smooth scrolling animations
 const useScrollAnimation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -37,7 +37,7 @@ const PremiumButton = ({ children, variant = 'primary', className = '', onClick,
   
   return (
     <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="gravesend-sans relative z-10 flex items-center gap-2">
         {children}
       </span>
       <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
@@ -45,117 +45,38 @@ const PremiumButton = ({ children, variant = 'primary', className = '', onClick,
   );
 };
 
-// Navigation Component
-const Navigation = ({ currentPage, setCurrentPage }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const scrollY = useScrollAnimation();
-
-  useEffect(() => {
-    setIsScrolled(scrollY > 100);
-  }, [scrollY]);
-
-  const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'About', id: 'about' },
-    { name: 'Investee Companies', id: 'investee-companies' },
-    { name: 'Team', id: 'team' },
-    { name: 'Contact', id: 'contact' }
-  ];
-
-  const handleNavClick = (pageId) => {
-    setCurrentPage(pageId);
-    setIsOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-slate-900/95 backdrop-blur-lg border-b border-slate-700/50' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
-          <div 
-            onClick={() => handleNavClick('home')}
-            className="flex items-center space-x-3 group cursor-pointer"
-          >
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-              <span className="text-slate-900 font-bold text-xl">A</span>
-            </div>
-            <span className="text-2xl font-bold text-white tracking-tight">ACQUIRISE</span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.id)}
-                className={`text-slate-300 hover:text-yellow-400 transition-colors duration-300 font-medium relative group ${
-                  currentPage === item.id ? 'text-yellow-400' : ''
-                }`}
-              >
-                {item.name}
-                <span className={`absolute bottom-0 left-0 h-0.5 bg-yellow-400 transition-all duration-300 ${
-                  currentPage === item.id ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-yellow-400 transition-colors duration-300"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-slate-700/50">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavClick(item.id)}
-                className={`block w-full text-left px-6 py-4 text-slate-300 hover:text-yellow-400 transition-colors duration-300 ${
-                  currentPage === item.id ? 'text-yellow-400' : ''
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-};
-
-// Hero Section Component
 const HeroSection = () => {
   const scrollY = useScrollAnimation();
   
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+      {/* Hero Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-slate-800/70 to-black/80 z-10"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+          alt="African city skyline" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-20 pt-20 sm:pt-32 pb-16 sm:pb-20">
         <div 
           className="transform transition-all duration-1000"
           style={{ transform: `translateY(${scrollY * 0.1}px)` }}
         >
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight">
+          <h1 className="gravesend-sans text-4xl sm:text-6xl lg:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight">
             Capital Deployment with
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500 block">
+            <span className="block text-4xl sm:text-6xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500 mt-2">
               Local Insight
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="gellix-font text-lg sm:text-xl lg:text-2xl text-slate-300 mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed px-4">
             Deploying capital intelligently by leveraging deep, on-the-ground knowledge across Sub-Saharan Africa
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
             <PremiumButton>
               Explore Opportunities
               <ArrowRight size={20} />
@@ -167,27 +88,27 @@ const HeroSection = () => {
         </div>
 
         {/* Floating cards with core values */}
-        <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-16 sm:mt-20 max-w-6xl mx-auto px-4">
           {[
             {
-              icon: <Target className="w-8 h-8" />,
-              title: "Risk Mitigation and Structuring",
-              description: "Actively managing risk through structuring and diversification"
+              icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+              title: "Risk Mitigation",
+              description: "Actively managing risk through intelligent structuring and diversification strategies"
             },
             {
-              icon: <Shield className="w-8 h-8" />,
-              title: "Sustainable Value Creation", 
-              description: "Building long-term value for our stakeholders"
+              icon: <Shield className="w-6 h-6 sm:w-8 sm:h-8" />,
+              title: "Value Creation", 
+              description: "Building sustainable long-term value for all our stakeholders and communities"
             },
             {
-              icon: <TrendingUp className="w-8 h-8" />,
+              icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />,
               title: "Local Intelligence",
-              description: "Deep market understanding with global standards"
+              description: "Deep market understanding combined with international investment standards"
             }
           ].map((item, index) => (
             <div 
               key={index}
-              className="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-lg rounded-2xl p-8 border border-slate-700/50 hover:border-yellow-400/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
+              className="group bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-slate-700/50 hover:border-yellow-400/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
               style={{ 
                 animationDelay: `${index * 200}ms`,
                 transform: `translateY(${scrollY * 0.05}px)` 
@@ -196,8 +117,8 @@ const HeroSection = () => {
               <div className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {item.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
-              <p className="text-slate-300 leading-relaxed">{item.description}</p>
+              <h3 className="gravesend-sans text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4" >{item.title}</h3>
+              <p className="gellix-font text-slate-300 text-sm sm:text-base leading-relaxed">{item.description}</p>
             </div>
           ))}
         </div>
@@ -206,54 +127,113 @@ const HeroSection = () => {
   );
 };
 
+// About Section Component
+const AboutSection = () => {
+  const scrollY = useScrollAnimation();
+  
+  return (
+    <section className="py-16 sm:py-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div 
+            className="space-y-6 sm:space-y-8"
+            style={{ transform: `translateY(${scrollY * 0.03}px)` }}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight" style={{ fontFamily: 'serif' }}>
+              About <span className="text-yellow-400">ACQUIRISE</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
+              We are a catalyst for sustainable transformation, investing in businesses that solve real problems across key sectors in Sub-Saharan Africa.
+            </p>
+            <p className="text-base sm:text-lg text-slate-400 leading-relaxed">
+              Our thematic, impact-driven approach targets scalable ventures that achieve both exceptional returns and tangible developmental outcomes. With deep local knowledge and international standards, we bridge the gap between opportunity and capital.
+            </p>
+            <PremiumButton>
+              Learn More About Us
+              <ArrowRight size={18} />
+            </PremiumButton>
+          </div>
+          
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+              alt="Business meeting in Africa" 
+              className="rounded-2xl shadow-2xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Focus Section Component
 const FocusSection = () => {
+  const scrollY = useScrollAnimation();
+  
   return (
-    <section className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white mb-6">
+    <section className="py-16 sm:py-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
             OUR <span className="text-yellow-400">FOCUS</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            We are a catalyst for sustainable transformation by investing in businesses that solve real problems across key sectors. We adopt a thematic, impact-driven approach, targeting scalable ventures that achieve both exceptional returns and tangible developmental outcomes.
+          <p className="gellix-font text-lg sm:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
+            We adopt a thematic, impact-driven approach, targeting scalable ventures that achieve both exceptional returns and tangible developmental outcomes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {[
             {
               title: "Localization",
-              description: "Deploying capital intelligently by leveraging deep, on-the-ground knowledge",
-              gradient: "from-blue-500 to-cyan-400"
+              description: "Deploying capital intelligently by leveraging deep, on-the-ground knowledge and local partnerships",
+              gradient: "from-blue-500 to-cyan-400",
+              image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
             },
             {
               title: "De-risking", 
-              description: "Actively managing risk through structuring and diversification",
-              gradient: "from-purple-500 to-pink-400"
+              description: "Actively managing risk through intelligent structuring, diversification, and thorough due diligence",
+              gradient: "from-purple-500 to-pink-400",
+              image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
             },
             {
               title: "Value Creation",
-              description: "Building long term value for our stakeholders", 
-              gradient: "from-yellow-500 to-orange-400"
+              description: "Building sustainable long-term value for stakeholders through strategic partnerships and expertise", 
+              gradient: "from-yellow-500 to-orange-400",
+              image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
             }
           ].map((item, index) => (
-            <div key={index} className="group relative">
-              <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-lg rounded-3xl p-8 border border-slate-700/50 hover:border-slate-600/50 transition-all duration-500 transform hover:scale-105 group">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${item.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-white font-bold text-xl">{index + 1}</span>
+            <div 
+              key={index} 
+              className="group relative overflow-hidden rounded-3xl"
+              style={{ transform: `translateY(${scrollY * 0.02}px)` }}
+            >
+              <div className="aspect-[4/5] relative">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent"></div>
+              </div>
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r ${item.gradient} flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <span className="text-white font-bold text-lg sm:text-xl">{index + 1}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-slate-300 leading-relaxed">{item.description}</p>
+                <h3 className="gravesend-sans text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">{item.title}</h3>
+                <p className="gellix-font text-slate-300 text-sm sm:text-base leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <div className="inline-flex items-center gap-4 text-slate-400 text-lg">
-            <Globe className="w-6 h-6" />
-            <span>Botswana | Mauritius | South Africa | Zambia | Zimbabwe</span>
+          <div className="inline-flex items-center gap-3 sm:gap-4 text-slate-400 text-base sm:text-lg bg-slate-800/50 backdrop-blur-sm rounded-full px-6 sm:px-8 py-3 sm:py-4">
+            <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+            <span className="gravesend-sans font-bold text-sm sm:text-base">Botswana | Mauritius | South Africa | Zambia | Zimbabwe</span>
           </div>
         </div>
       </div>
@@ -543,7 +523,8 @@ const App = () => {
       {/* Custom font loading */}
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
+        import Navigation from './nav';
+
         * {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }

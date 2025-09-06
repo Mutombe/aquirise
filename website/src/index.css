@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Gravesend Sans';
+  src: url('./fonts/fonts.com-Gravesend_Sans_Medium.otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Gravesend Sans';
+  src: url('./fonts/fonts.com-Gravesend_Sans_Light.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Gravesend Sans';
+  src: url('./fonts/fonts.com-Gravesend_Sans_Bold.otf') format('opentype');
+  font-weight: 700;
+}

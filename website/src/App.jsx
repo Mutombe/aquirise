@@ -55,11 +55,68 @@ const App = () => {
     <div className="min-h-screen bg-white">
       {/* Custom fonts and global styles */}
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        import PortfolioSection from './portifolio';
+        @font-face {
+          font-family: 'Gravesend Sans';
+          src: url('./fonts/fonnts.com-Gravesend_Sans_Light.otf') format('opentype');
+          font-weight: 300;
+          font-style: normal;
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Gravesend Sans';
+          src: url('./fonts/fonnts.com-Gravesend_Sans_Medium.otf') format('opentype');
+          font-weight: 500;
+          font-style: normal;
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Gravesend Sans';
+          src: url('./fonts/fonnts.com-Gravesend_Sans_Bold.otf') format('opentype');
+          font-weight: 700;
+          font-style: normal;
+          font-display: swap;
+        }
+        
+        /* Century Gothic Font Face */
+        @font-face {
+          font-family: 'Century Gothic Custom';
+          src: url('./fonts/weezerfont.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+        
+        @font-face {
+          font-family: 'Gellix';
+          src: url('./fonts/Gellix-Light.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+        @font-face {
+          font-family: 'Gellix';
+          src: url('./fonts/Gellix-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+          font-display: swap;
+        }
+        /* Font utility classes */
+        .gravesend-sans {
+          font-family: 'Gravesend Sans', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .roboto-font {
+          font-family: 'Roboto', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .century-gothic {
+          font-family: 'Century Gothic Custom', 'Century Gothic', 'Arial', sans-serif;
+        }
 
-        * {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        .gellix-font {
+          font-family: 'Gellix', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {

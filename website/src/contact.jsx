@@ -167,47 +167,6 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A</span>
-              </div>
-              <span className="text-2xl font-bold text-slate-800" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-                ACQUIRISE
-              </span>
-            </div>
-            <div className="hidden lg:flex items-center space-x-8">
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                Home
-              </button>
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                About
-              </button>
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                Investment Focus
-              </button>
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                Portfolio
-              </button>
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                Team
-              </button>
-              <button className="text-sm font-medium text-slate-700 hover:text-amber-600 transition-colors duration-200" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                News
-              </button>
-              <button className="text-sm font-medium text-amber-600" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                Contact
-              </button>
-              <button className="bg-gradient-to-r from-amber-400 to-amber-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <div className="pt-32 pb-20">

@@ -10,7 +10,7 @@ const PremiumButton = ({ children, variant = 'primary', className = '', onClick,
   
   return (
     <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="gellix-font relative z-10 flex items-center gap-2">
         {children}
       </span>
       <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
@@ -176,10 +176,10 @@ const InvesteeCompaniesPage = () => {
               <select 
                 value={selectedSector}
                 onChange={(e) => setSelectedSector(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-colors duration-200"
+                className="gellix-font w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-colors duration-200"
               >
                 {sectors.map(sector => (
-                  <option key={sector} value={sector}>
+                  <option key={sector} value={sector} className='gellix-font'>
                     {sector === 'all' ? 'All Sectors' : sector}
                   </option>
                 ))}
@@ -195,7 +195,7 @@ const InvesteeCompaniesPage = () => {
                 className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-colors duration-200"
               >
                 {regions.map(region => (
-                  <option key={region} value={region}>
+                  <option key={region} value={region} className='gellix-font'>
                     {region === 'all' ? 'All Regions' : region}
                   </option>
                 ))}
@@ -221,12 +221,12 @@ const InvesteeCompaniesPage = () => {
                   </span>
                 </div>
                 <div className={`absolute top-4 right-4 w-12 h-12 rounded-xl bg-gradient-to-r ${company.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <span className="text-white font-bold text-lg">{company.name[0]}</span>
+                  <span className="gellix-font text-white font-bold text-lg">{company.name[0]}</span>
                 </div>
               </div>
               
               <div className="p-8">
-                <div className="flex items-center gap-2 text-slate-500 text-sm mb-2">
+                <div className="gellix-font flex items-center gap-2 text-slate-500 text-sm mb-2">
                   <MapPin size={16} />
                   {company.location}
                 </div>
@@ -240,32 +240,32 @@ const InvesteeCompaniesPage = () => {
                 {/* Company Stats */}
                 <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-50 rounded-xl">
                   <div className="text-center">
-                    <div className="text-sm font-bold text-slate-900">{company.founded}</div>
-                    <div className="text-xs text-slate-500">Founded</div>
+                    <div className="gravesend-sans text-sm font-bold text-slate-900">{company.founded}</div>
+                    <div className="gellix-font text-xs text-slate-500">Founded</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm font-bold text-slate-900">{company.employees}</div>
-                    <div className="text-xs text-slate-500">Employees</div>
+                    <div className="gravesend-sans text-sm font-bold text-slate-900">{company.employees}</div>
+                    <div className="gellix-font text-xs text-slate-500">Employees</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-sm font-bold text-slate-900">{company.revenue}</div>
-                    <div className="text-xs text-slate-500">Revenue</div>
+                    <div className="gravesend-sans text-sm font-bold text-slate-900">{company.revenue}</div>
+                    <div className="gellix-font text-xs text-slate-500">Revenue</div>
                   </div>
                 </div>
 
                 {/* Key Metrics */}
                 <div className="flex justify-between items-center pt-4 border-t border-slate-100">
                   <div className="text-center">
-                    <div className="text-lg font-bold text-amber-600">{company.metrics.growth}</div>
-                    <div className="text-xs text-slate-500">Growth</div>
+                    <div className="gravesend-sans text-lg font-bold text-amber-600">{company.metrics.growth}</div>
+                    <div className="gellix-font text-xs text-slate-500">Growth</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-lg font-bold text-slate-900">{company.metrics.markets}</div>
-                    <div className="text-xs text-slate-500">Markets</div>
+                    <div className="gravesend-sans text-lg font-bold text-slate-900">{company.metrics.markets}</div>
+                    <div className="gellix-font text-xs text-slate-500">Markets</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-lg font-bold text-slate-900">{Object.values(company.metrics)[2]}</div>
-                    <div className="text-xs text-slate-500">{Object.keys(company.metrics)[2].charAt(0).toUpperCase() + Object.keys(company.metrics)[2].slice(1)}</div>
+                    <div className="gravesend-sans text-lg font-bold text-slate-900">{Object.values(company.metrics)[2]}</div>
+                    <div className="gravesend-sans text-xs text-slate-500">{Object.keys(company.metrics)[2].charAt(0).toUpperCase() + Object.keys(company.metrics)[2].slice(1)}</div>
                   </div>
                 </div>
               </div>

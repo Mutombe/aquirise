@@ -10,7 +10,7 @@ const PremiumButton = ({ children, variant = 'primary', className = '', onClick,
   
   return (
     <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="gellix-font relative z-10 flex items-center gap-2">
         {children}
       </span>
       <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
@@ -66,14 +66,14 @@ const PortfolioSection = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="gellix-sans bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {company.sector}
                   </span>
                 </div>
               </div>
               
               <div className="p-8">
-                <div className="flex items-center gap-2 text-slate-500 text-sm mb-2">
+                <div className="gellix-sans flex items-center gap-2 text-slate-500 text-sm mb-2">
                   <MapPin size={16} />
                   {company.location}
                 </div>

@@ -31,7 +31,7 @@ const PremiumButton = ({ children, variant = 'primary', className = '', onClick,
   
   return (
     <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="gellix-font relative z-10 flex items-center gap-2">
         {children}
       </span>
       <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>

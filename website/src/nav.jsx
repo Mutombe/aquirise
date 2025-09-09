@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Phone, Mail, Globe, ChevronDown, Building, Users, Target, History } from "lucide-react";
+import { SiLocal } from "react-icons/si";
+import { SiWebmoney } from "react-icons/si";
+import { SiSmartthings } from "react-icons/si";
+import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+import { MdOutlineReceiptLong } from "react-icons/md";
 
 // Custom hook for smooth scrolling animations
 const useScrollAnimation = () => {
@@ -47,9 +54,9 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
       hasDropdown: true,
       dropdownItems: [
         { name: "Our Story", id: "about", icon: History },
-        { name: "Localisation", id: "localisation", icon: Target },
-        { name: "De-risking", id: "de-risking", icon: Users },
-        { name: "Value Creation", id: "value-creation", icon: Building }
+        { name: "Localisation", id: "localisation", icon: SiLocal },
+        { name: "De-risking", id: "de-risking", icon: SiWebmoney },
+        { name: "Value Creation", id: "value-creation", icon: GiTakeMyMoney }
       ]
     },
     { name: "Investee Companies", id: "investee-companies" },

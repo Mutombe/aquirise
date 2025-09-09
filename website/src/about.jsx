@@ -1,7 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp, Users, Award, Building, CheckCircle, Star, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
-import { on } from './../node_modules/leaflet/src/dom/DomEvent';
 
+const PremiumButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
+  const baseClasses = "group relative overflow-hidden px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer text-sm sm:text-base";
+  const variants = {
+    primary: "text-white shadow-lg hover:shadow-xl",
+    outline: "border-2 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm"
+  };
+  
+  const primaryStyle = { 
+    backgroundColor: '#273848',
+    borderColor: '#273848'
+  };
+  
+  const outlineStyle = {
+    borderColor: 'white'
+  };
+  
+  return (
+    <button 
+      className={`${baseClasses} ${variants[variant]} ${className}`} 
+      onClick={onClick} 
+      style={variant === 'primary' ? primaryStyle : outlineStyle}
+      {...props}
+    >
+      <span className="gellix-font relative z-10 flex items-center gap-2">
+        {children}
+      </span>
+      <div 
+        className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+        style={{ backgroundColor: variant === 'primary' ? '#1a2631' : '#273848' }}
+      ></div>
+    </button>
+  );
+};
 // Custom hook for smooth scrolling animations
 const useScrollAnimation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -15,186 +47,224 @@ const useScrollAnimation = () => {
   return scrollY;
 };
 
-// Navigation Component
-const Navigation = ({ currentPage, setCurrentPage }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+// Abstract Background Components
+const AbstractSpheres = ({ className = "" }) => (
+  <div className={`absolute ${className}`}>
+    <div className="relative w-full h-full">
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full opacity-20"
+          style={{
+            backgroundColor: '#273848',
+            width: `${Math.random() * 30 + 15}px`,
+            height: `${Math.random() * 30 + 15}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 2}s`,
+            animation: `float ${3 + Math.random() * 2}s ease-in-out infinite`
+          }}
+        />
+      ))}
+    </div>
+  </div>
+);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+const AbstractDots = ({ className = "" }) => (
+  <div className={`absolute ${className}`}>
+    <svg viewBox="0 0 400 400" className="w-full h-full opacity-20">
+      {[...Array(80)].map((_, i) => (
+        <circle
+          key={i}
+          cx={Math.random() * 400}
+          cy={Math.random() * 400}
+          r={Math.random() * 2 + 1}
+          fill="#273848"
+          style={{
+            animation: `pulse ${2 + Math.random() * 3}s ease-in-out infinite`,
+            animationDelay: `${Math.random() * 2}s`
+          }}
+        />
+      ))}
+    </svg>
+  </div>
+);
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'focus', label: 'Investment Focus' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'team', label: 'Team' },
-    { id: 'news', label: 'News' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
-  return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">A</span>
-            </div>
-            <span className="text-2xl font-bold text-slate-800" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-              ACQUIRISE
-            </span>
-          </div>
-
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setCurrentPage(item.id)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-amber-600 ${
-                  currentPage === item.id ? 'text-amber-600' : 'text-slate-700'
-                }`}
-                style={{ fontFamily: 'Gellix, sans-serif' }}
-              >
-                {item.label}
-              </button>
-            ))}
-            <button className="bg-gradient-to-r from-amber-400 to-amber-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-              onClick={() => window.location.href = '/contact'}>
-              Get Started
-            </button>
-          </div>
-
-          <button
-            className="lg:hidden text-slate-700"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {isOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t">
-            <div className="px-4 py-4 space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setCurrentPage(item.id);
-                    setIsOpen(false);
-                  }}
-                  className={`block w-full text-left py-2 text-base font-medium transition-colors duration-200 ${
-                    currentPage === item.id ? 'text-amber-600' : 'text-slate-700'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
-  );
-};
-
-// Premium Button Component
-const PremiumButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
-  const baseClasses = "group relative overflow-hidden px-8 py-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 cursor-pointer";
-  const variants = {
-    primary: "bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-lg hover:shadow-xl",
-    outline: "border-2 border-amber-400 text-amber-600 hover:bg-amber-400 hover:text-white",
-    secondary: "bg-slate-100 text-slate-700 hover:bg-slate-200"
-  };
-  
-  return (
-    <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="relative z-10 flex items-center gap-2" style={{ fontFamily: 'Gellix, sans-serif' }}>
-        {children}
-      </span>
-    </button>
-  );
-};
-
-// About Section
-const AboutSection = () => {
+// Hero Section Component
+const HeroSection = () => {
   const scrollY = useScrollAnimation();
   
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/home3.jpg"
+          alt="About us background"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center center' }}
+        />
+        <div 
+          className="absolute inset-0 opacity-80"
+          style={{ backgroundColor: '#273848' }}
+        ></div>
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <div 
+          className="space-y-8"
+          style={{ transform: `translateY(${scrollY * 0.02}px)` }}
+        >
+          <div className="space-y-6">
+            <h1 
+              className="gravesend-sans text-5xl lg:text-7xl font-bold text-white leading-tight"
+            >
+              About <span className="text-gray-300">Our Vision</span>
+            </h1>
+            <p 
+              className="gellix-font text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
+            >
+              Investors in real-world solutions, catalysing progress across Sub-Saharan Africa
+            </p>
+          </div>
+          
+          <button 
+            className="gravesend-sans group flex items-center space-x-3 px-8 py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 mx-auto bg-white"
+            style={{ color: '#273848' }}
+            onClick={() => document.getElementById('story').scrollIntoView({ behavior: 'smooth' })}
+          >
+            <span>Discover Our Story</span>
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Abstract Section Divider
+const AbstractDivider = ({ side = 'left' }) => (
+  <div className={`absolute ${side === 'left' ? 'left-0' : 'right-0'} top-0 w-64 h-full pointer-events-none`}>
+    <AbstractSpheres className="w-full h-full" />
+    <div className="absolute top-1/4 w-32 h-32 opacity-30">
+      <img
+        src="/home2.jpg"
+        alt="Decorative"
+        className="w-full h-full object-cover rounded-full shadow-lg"
+      />
+    </div>
+  </div>
+);
+
+// Main Story Section
+const StorySection = () => {
+  const scrollY = useScrollAnimation();
+  
+  return (
+    <section id="story" className="py-24 bg-white relative overflow-hidden">
+      {/* Abstract Background Elements */}      
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
           <div 
-            className="space-y-8"
-            style={{ transform: `translateY(${scrollY * 0.03}px)` }}
+            className="space-y-12 relative z-10"
+            style={{ transform: `translateY(${scrollY * 0.01}px)` }}
           >
             <div>
-              <h2 className="text-sm font-bold text-amber-600 uppercase tracking-wider mb-4" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                About Us
+              <h2 
+                className="gellix-font text-sm font-bold uppercase tracking-wider mb-4"
+                style={{ color: '#273848' }}
+              >
+                Our Foundation
               </h2>
-              <h3 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-                Transforming African 
-                <span className="text-amber-600"> Investment</span>
+              <h3 
+                className="gravesend-sans text-4xl lg:text-5xl font-bold leading-tight mb-8"
+                style={{ color: '#273848' }}
+              >
+                Capital That <span className="text-gray-500">Catalyses</span>
               </h3>
             </div>
             
-            <div className="space-y-6 text-lg text-slate-600" style={{ fontFamily: 'Gellix, sans-serif' }}>
+            <div className="space-y-8 gellix-font text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
               <p>
-                We are a catalyst for sustainable transformation, investing in businesses that solve real problems across key sectors in Sub-Saharan Africa. Our thematic, impact-driven approach targets scalable ventures that achieve both exceptional returns and tangible developmental outcomes.
+                At our core, we are investors in real-world solutions. Founded with the belief that capital should do more than seek returns, it should catalyse progress, we invest in private ventures across Sub-Saharan Africa that address significant challenges and unlock scalable opportunities.
               </p>
               <p>
-                With deep local knowledge and international standards, we bridge the gap between opportunity and capital, creating lasting value for all stakeholders.
+                We adopt a thematic, impact-driven approach, targeting high-potential businesses in key sectors such as infrastructure, agriculture, trade, healthcare and financial inclusion. By aligning capital with innovation and execution, we aim to deliver both exceptional returns and measurable development outcomes.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-6 rounded-2xl">
-                <div className="text-3xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Gravesend Sans, serif' }}>15+</div>
-                <div className="text-slate-700" style={{ fontFamily: 'Gellix, sans-serif' }}>Years Experience</div>
-              </div>
-              <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-2xl">
-                <div className="text-3xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Gravesend Sans, serif' }}>98%</div>
-                <div className="text-slate-700" style={{ fontFamily: 'Gellix, sans-serif' }}>Success Rate</div>
-              </div>
-            </div>
-            
-            <PremiumButton variant="primary" onClick={() => window.location.href = '/about'}>
-              Learn More About Us
-              <ArrowRight size={18} />
-            </PremiumButton>
+            <button 
+              className="gravesend-sans group flex items-center space-x-3 px-8 py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105"
+              style={{ backgroundColor: '#273848', color: 'white' }}
+            >
+              <span>View Our Portfolio</span>
+              <Globe size={18} className="group-hover:translate-x-1 transition-transform text-gray-300" />
+            </button>
           </div>
           
+          {/* Visual Elements with Images */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Business meeting" 
-                  className="rounded-2xl shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Team collaboration" 
-                  className="rounded-2xl shadow-lg"
-                />
+            <div className="relative z-10 space-y-8">
+              {/* Key Sectors Cards with Images */}
+              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="w-20 h-20 rounded-sm overflow-hidden">
+                    <img
+                      src="/home4.jpg"
+                      alt="Infrastructure"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
+                      Infrastructure
+                    </h4>
+                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                      Building foundations for growth
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="pt-8 space-y-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Modern office" 
-                  className="rounded-2xl shadow-lg"
-                />
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Strategic planning" 
-                  className="rounded-2xl shadow-lg"
-                />
+              
+              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ml-8 border border-gray-100">
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="w-20 h-20 rounded-sm overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                      alt="Financial Services"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
+                      Financial Inclusion
+                    </h4>
+                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                      Expanding access to opportunity
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                <div className="flex items-center space-x-6 mb-6">
+                  <div className="w-20 h-20 rounded-sm overflow-hidden">
+                    <img
+                      src="/home9.jpg"
+                      alt="Healthcare"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
+                      Healthcare & Agriculture
+                    </h4>
+                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                      Essential services, sustainable growth
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -204,80 +274,179 @@ const AboutSection = () => {
   );
 };
 
-// Investment Focus Section
-
-
-// Portfolio Section
-
-
-// Team Section
-const TeamSection = () => {
+// Key Focus Areas Section
+const FocusAreasSection = () => {
+  const scrollY = useScrollAnimation();
+  
   return (
-    <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      {/* Abstract Background */}
+      <AbstractDots className="top-10 right-10 w-80 h-80 opacity-10" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-amber-600 uppercase tracking-wider mb-4" style={{ fontFamily: 'Gellix, sans-serif' }}>
-            Our Team
+          <h2 
+            className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
+            style={{ color: '#273848' }}
+          >
+            Our <span className="text-gray-500">Approach</span>
           </h2>
-          <h3 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-            Leadership <span className="text-amber-600">Excellence</span>
-          </h3>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto" style={{ fontFamily: 'Gellix, sans-serif' }}>
-            Acquirise has a highly experienced team with an established track record in investment management and regional expertise.
+          <p className="gellix-font text-xl max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+            We believe in active partnership, strategic guidance, and sustainable value creation through three core pillars
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
-              name: "Dr. Sarah Mwangi",
-              position: "Managing Partner",
-              experience: "15+ years",
-              image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              title: "Impact-Driven Investment",
+              description: "We seek opportunities that generate both financial returns and positive societal impact, focusing on businesses that solve real problems.",
+              image: "/home8.jpg"
             },
             {
-              name: "James Ochieng",
-              position: "Investment Director", 
-              experience: "12+ years",
-              image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              title: "Local Expertise", 
+              description: "Our deep understanding of Sub-Saharan markets enables us to identify opportunities and navigate challenges with precision.",
+              image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
             },
             {
-              name: "Fatima Al-Rashid",
-              position: "Portfolio Manager",
-              experience: "10+ years", 
-              image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+              title: "Strategic Partnership",
+              description: "We work closely with management teams to unlock value, providing not just capital but strategic guidance and operational support.", 
+              image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
             }
-          ].map((member, index) => (
-            <div key={index} className="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 text-center group hover:shadow-2xl transition-all duration-300">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
-                <img 
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          ].map((item, index) => (
+            <div 
+              key={index} 
+              className="group bg-white rounded-sm p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer relative"
+              style={{ transform: `translateY(${scrollY * 0.02}px)` }}
+            >
+              {/* Background Image */}
+              <div className="w-full h-48 mb-6 rounded-sm overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-                {member.name}
+              
+              <h4 
+                className="gravesend-sans text-2xl font-bold mb-4"
+                style={{ color: '#273848' }}
+              >
+                {item.title}
               </h4>
-              <p className="text-amber-600 font-medium mb-2" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                {member.position}
-              </p>
-              <p className="text-slate-500 text-sm" style={{ fontFamily: 'Gellix, sans-serif' }}>
-                {member.experience}
+              <p className="gellix-font leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                {item.description}
               </p>
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+};
 
-        <div className="text-center">
-          <PremiumButton onClick={() => window.location.href = 'mailto:LxWwI@example.com'}>
-            <Mail size={20} />
-            Contact Our Team
-          </PremiumButton>
+// Values Section with Images
+const ValuesSection = () => {
+  return (
+    <section className="py-24 bg-white relative overflow-hidden">
+      
+      <AbstractSpheres className="top-32 left-1/4 w-60 h-60 opacity-10" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 
+            className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
+            style={{ color: '#273848' }}
+          >
+            Our <span className="text-gray-500">Values</span>
+          </h2>
+          <p className="gellix-font text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+            These principles guide every decision we make and every partnership we forge
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            {[
+              {
+                title: "Integrity",
+                description: "We conduct business with the highest ethical standards, building trust through transparency and accountability."
+              },
+              {
+                title: "Excellence",
+                description: "We strive for exceptional outcomes in everything we do, from deal sourcing to portfolio management."
+              },
+              {
+                title: "Innovation",
+                description: "We embrace new ideas and approaches that can drive sustainable growth and positive change."
+              },
+              {
+                title: "Partnership",
+                description: "We believe in collaborative relationships built on mutual respect and shared vision for success."
+              }
+            ].map((value, index) => (
+              <div key={index} className="flex items-start space-x-6">
+                <div 
+                  className="w-12 h-12 rounded-sm flex items-center justify-center text-white flex-shrink-0"
+                  style={{ backgroundColor: '#273848' }}
+                >
+                  <CheckCircle size={20} className="text-gray-300"/>
+                </div>
+                <div>
+                  <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
+                    {value.title}
+                  </h4>
+                  <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                    {value.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="relative">
+            <div className="bg-white p-8 rounded-sm shadow-lg border border-gray-100">
+              <img
+                src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Our team and values"
+                className="w-full h-64 object-cover rounded-sm mb-6"
+              />
+              <h4 className="gravesend-sans text-2xl font-bold mb-4" style={{ color: '#273848' }}>
+                Driven by Purpose
+              </h4>
+              <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+                Our commitment extends beyond financial returns to creating lasting positive impact across the communities and markets we serve.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export { Navigation, AboutSection, TeamSection };
+// Main About Us Page Component
+const AboutUsPage = () => {
+  return (
+    <div className="min-h-screen">
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(2deg); }
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.6; }
+        }
+      `}</style>
+      
+      <HeroSection />
+      <StorySection />
+      <FocusAreasSection />
+      <ValuesSection />
+    </div>
+  );
+};
+
+export default AboutUsPage;

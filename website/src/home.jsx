@@ -1,148 +1,166 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp, Users, Award, Building, CheckCircle, Star, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
-import { FaMapLocationDot } from "react-icons/fa6";
-import { MdDangerous } from "react-icons/md";
-import { GrMoney } from "react-icons/gr";
-import { GiTakeMyMoney } from "react-icons/gi";
-import { SiWebmoney } from "react-icons/si";
-import { SiSmartthings } from "react-icons/si";
+import { ChevronLeft, ChevronRight, ArrowRight, Target, Shield, TrendingUp, Globe, MapPin } from 'lucide-react';
 
-
-
-
-const useScrollAnimation = () => {
-  const [scrollY, setScrollY] = useState(0);
+const HomePage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState({});
   
+  const slides = [
+    {
+      title: (
+        <>
+          Capital Deployment with <span className="text-gray-500">Local Insight</span>
+        </>
+      ),
+      subtitle: "Deploying capital intelligently by leveraging deep, on-the-ground knowledge",
+      image: "/home2.jpg",
+      alt: "African business district with modern buildings"
+    },
+    {
+      title: (
+        <>
+          Risk Mitigation and <span className="text-gray-500">Structuring</span>
+        </>
+      ),
+      subtitle: "Actively managing risk through structuring and diversification",
+      image: "/home3.jpg",
+      alt: "African financial district skyline"
+    },
+    {
+      title: (
+        <>
+          Sustainable Value <span className="text-gray-500">Creation</span>
+        </>
+      ),
+      subtitle: "Building long-term value for our stakeholders",
+      image: "/home4.jpg",
+      alt: "African manufacturing and industrial activity"
+    }
+  ];
+
+  // Preload images for faster loading
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    slides.forEach((slide, index) => {
+      const img = new Image();
+      img.onload = () => {
+        setImagesLoaded(prev => ({ ...prev, [index]: true }));
+      };
+      img.src = slide.image;
+    });
   }, []);
-  
-  return scrollY;
-};
 
-const PremiumButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
-  const baseClasses = "group relative overflow-hidden px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer text-sm sm:text-base";
-  const variants = {
-    primary: "bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 shadow-lg hover:shadow-xl hover:shadow-yellow-400/25",
-    outline: "border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-900 backdrop-blur-sm"
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
-  
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <button className={`${baseClasses} ${variants[variant]} ${className}`} onClick={onClick} {...props}>
-      <span className="gellix-font relative z-10 flex items-center gap-2">
-        {children}
-      </span>
-      <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-500 translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-    </button>
-  );
-};
-
-const HeroSection = () => {
-  const scrollY = useScrollAnimation();
-  
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
-      {/* Hero Image */}
-      <div className="absolute right-0 top-0 w-1/2 h-full">
-        <img 
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-          alt="African city skyline" 
-          className="w-full h-full object-cover opacity-20"
-        />
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-20 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div 
-            className="space-y-8"
-            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-          >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight" style={{ fontFamily: 'Gravesend Sans, serif' }}>
-              Capital Deployment with
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-700 mt-2">
-                Local Insight
-              </span>
-            </h1>
-            
-            <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed" style={{ fontFamily: 'Gellix, sans-serif' }}>
-              Deploying capital intelligently by leveraging deep, on-the-ground knowledge across Sub-Saharan Africa
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <PremiumButton onClick={() => window.location.href='/contact'}>
-                Explore Opportunities
-                <ArrowRight size={20} />
-              </PremiumButton>
-              <PremiumButton variant="outline" onClick={() => window.location.href='/Aquirise_Profile.pdf'}>
-                Download Our Profile
-              </PremiumButton>
-            </div>
-
-            {/* Key Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-200">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>$200M+</div>
-                <div className="text-slate-600 text-sm" style={{ fontFamily: 'Gellix, sans-serif' }}>Capital Deployed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>25+</div>
-                <div className="text-slate-600 text-sm" style={{ fontFamily: 'Gellix, sans-serif' }}>Portfolio Companies</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>5</div>
-                <div className="text-slate-600 text-sm" style={{ fontFamily: 'Gellix, sans-serif' }}>Markets Active</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center">
-                    <SiSmartthings className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>Risk Mitigation</h3>
-                    <p className="text-slate-600" style={{ fontFamily: 'Gellix, sans-serif' }}>Intelligent structuring and diversification</p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Slider */}
+      <section className="relative h-screen overflow-hidden" id="home">
+        <div className="absolute inset-0">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {/* Fixed Grid Layout */}
+              <div className="absolute inset-0 grid lg:grid-cols-2">
+                {/* Content Side - Fixed Position */}
+                <div className="relative z-10 flex items-start justify-center pt-32 px-8 lg:px-16 bg-white">
+                  <div className="max-w-xl space-y-8">
+                    <h1 
+                      className="gravesend-sans text-5xl lg:text-6xl font-bold leading-tight transform transition-all duration-500 opacity-100"
+                      style={{ color: '#273848' }}
+                    >
+                      {slide.title}
+                    </h1>
+                    <p className="gellix-font text-xl lg:text-2xl text-gray-600 leading-relaxed transform transition-all duration-500 opacity-100">
+                      {slide.subtitle}
+                    </p>
+                    <button 
+                      className="gravesend-sans group flex items-center space-x-3 px-8 py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105"
+                      style={{ backgroundColor: '#273848', color: 'white' }}
+                    >
+                      <span>Explore Opportunities</span>
+                      <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform text-gray-300" />
+                    </button>
                   </div>
                 </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-800 rounded-2xl flex items-center justify-center">
-                    <GrMoney className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>Value Creation</h3>
-                    <p className="text-slate-600" style={{ fontFamily: 'Gellix, sans-serif' }}>Sustainable long-term value building</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center">
-                    <GiTakeMyMoney className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900" style={{ fontFamily: 'Gravesend Sans, serif' }}>Local Intelligence</h3>
-                    <p className="text-slate-600" style={{ fontFamily: 'Gellix, sans-serif' }}>Deep market understanding</p>
+
+                {/* Image Side - Fixed Dimensions */}
+                <div className="relative h-full overflow-hidden">
+                  <div className="absolute inset-0">
+                    {imagesLoaded[index] ? (
+                      <img
+                        src={slide.image}
+                        alt={slide.alt}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        style={{ 
+                          objectPosition: 'center center',
+                          minHeight: '100vh',
+                          maxHeight: '100vh'
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse flex items-center justify-center">
+                        <div className="text-gray-500 text-lg">Loading...</div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
-      </div>
-    </section>
+
+        {/* Arrow Navigation */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
+        >
+          <ChevronLeft size={24} className="text-white" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300"
+        >
+          <ChevronRight size={24} className="text-white" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/50 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
   );
 };
 
-export default HeroSection;
+export default HomePage;

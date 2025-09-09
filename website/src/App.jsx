@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp } from 'lucide-react';
 import Navigation from './nav';
-import HeroSection from './home';
-import { AboutSection, TeamSection} from './about';
+import HomePage from './home';
+import AboutUsPage from './about';
+import TeamSection from './team';
 import InvestmentFocusSection from './focus';
-import PortfolioSection from './portifolio';
+import LocalizationPage from './loacalisation';
 import NewsSection from './news';
 import ContactSection from './contact';
 import Footer from './footer';
 import InvesteeCompaniesPage from './investee';
+import DeRiskingPage from './derisking';
+import ValueCreationPage from './valuecreation';
 
 // Main App Component
 const App = () => {
@@ -19,33 +22,33 @@ const App = () => {
       case 'home':
         return (
           <div>
-            <HeroSection />
-            <AboutSection />
+            <HomePage />
             <InvestmentFocusSection />
-            <PortfolioSection />
           </div>
         );
       case 'about':
-        return <AboutSection />;
+        return <AboutUsPage />;
       case 'focus':
         return <InvestmentFocusSection />;
       case 'investee-companies':
         return <InvesteeCompaniesPage />;
-      case 'portfolio':
-        return <PortfolioSection />;
       case 'team':
         return <TeamSection />;
       case 'news':
         return <NewsSection />;
       case 'contact':
         return <ContactSection />;
+      case 'localisation':
+        return <LocalizationPage />;
+      case 'de-risking':
+        return <DeRiskingPage />;
+      case 'value-creation':
+        return <ValueCreationPage />;
       default:
         return (
           <div>
-            <HeroSection />
-            <AboutSection />
+            <HomePage />
             <InvestmentFocusSection />
-            <PortfolioSection />
           </div>
         );
     }

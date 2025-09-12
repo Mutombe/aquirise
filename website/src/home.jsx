@@ -1,10 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Phone, Mail, Globe, ChevronDown, Building, Users, Target, History, ChevronLeft, ChevronRight, ArrowRight, Shield, TrendingUp, MapPin } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Globe,
+  ChevronDown,
+  Building,
+  Users,
+  Target,
+  History,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+  Shield,
+  TrendingUp,
+  MapPin,
+} from "lucide-react";
 import InvestmentFocusSection from "./focus";
 
 const SharpSculpturalFlow = ({ className = "" }) => {
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div
+      className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
+    >
       <svg
         width="100%"
         height="100%"
@@ -14,7 +31,13 @@ const SharpSculpturalFlow = ({ className = "" }) => {
       >
         <defs>
           {/* Precision gradients with mathematical perfection */}
-          <linearGradient id="sharp-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="sharp-gradient-1"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.98" />
             <stop offset="12%" stopColor="#fefefe" stopOpacity="0.95" />
             <stop offset="28%" stopColor="#fafbfc" stopOpacity="0.92" />
@@ -24,8 +47,14 @@ const SharpSculpturalFlow = ({ className = "" }) => {
             <stop offset="92%" stopColor="#e8eaed" stopOpacity="0.70" />
             <stop offset="100%" stopColor="#e3e5e8" stopOpacity="0.65" />
           </linearGradient>
-          
-          <linearGradient id="sharp-gradient-2" x1="100%" y1="0%" x2="0%" y2="100%">
+
+          <linearGradient
+            id="sharp-gradient-2"
+            x1="100%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.96" />
             <stop offset="18%" stopColor="#fcfcfd" stopOpacity="0.92" />
             <stop offset="35%" stopColor="#f8f9fa" stopOpacity="0.88" />
@@ -34,7 +63,13 @@ const SharpSculpturalFlow = ({ className = "" }) => {
             <stop offset="100%" stopColor="#e6e8eb" stopOpacity="0.68" />
           </linearGradient>
 
-          <linearGradient id="sharp-gradient-3" x1="0%" y1="100%" x2="100%" y2="0%">
+          <linearGradient
+            id="sharp-gradient-3"
+            x1="0%"
+            y1="100%"
+            x2="100%"
+            y2="0%"
+          >
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.94" />
             <stop offset="22%" stopColor="#fafbfc" stopOpacity="0.88" />
             <stop offset="45%" stopColor="#f5f6f7" stopOpacity="0.82" />
@@ -43,7 +78,13 @@ const SharpSculpturalFlow = ({ className = "" }) => {
             <stop offset="100%" stopColor="#e4e6e9" stopOpacity="0.58" />
           </linearGradient>
 
-          <linearGradient id="metallic-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="metallic-accent"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.95" />
             <stop offset="30%" stopColor="#f8f9fa" stopOpacity="0.85" />
             <stop offset="70%" stopColor="#e9ecef" stopOpacity="0.75" />
@@ -51,26 +92,60 @@ const SharpSculpturalFlow = ({ className = "" }) => {
           </linearGradient>
 
           {/* Ultra-precision shadow system */}
-          <filter id="architectural-shadow" x="-150%" y="-150%" width="400%" height="400%">
+          <filter
+            id="architectural-shadow"
+            x="-150%"
+            y="-150%"
+            width="400%"
+            height="400%"
+          >
             {/* Sharp contact shadow */}
-            <feDropShadow dx="0.5" dy="1" stdDeviation="0.5" floodOpacity="0.08" floodColor="#000000"/>
+            <feDropShadow
+              dx="0.5"
+              dy="1"
+              stdDeviation="0.5"
+              floodOpacity="0.08"
+              floodColor="#000000"
+            />
             {/* Medium definition shadow */}
-            <feDropShadow dx="1" dy="3" stdDeviation="2" floodOpacity="0.06" floodColor="#000000"/>
+            <feDropShadow
+              dx="1"
+              dy="3"
+              stdDeviation="2"
+              floodOpacity="0.06"
+              floodColor="#000000"
+            />
             {/* Soft ambient shadow */}
-            <feDropShadow dx="2" dy="8" stdDeviation="8" floodOpacity="0.04" floodColor="#000000"/>
+            <feDropShadow
+              dx="2"
+              dy="8"
+              stdDeviation="8"
+              floodOpacity="0.04"
+              floodColor="#000000"
+            />
             {/* Ultra-soft depth shadow */}
-            <feDropShadow dx="0" dy="16" stdDeviation="20" floodOpacity="0.02" floodColor="#000000"/>
+            <feDropShadow
+              dx="0"
+              dy="16"
+              stdDeviation="20"
+              floodOpacity="0.02"
+              floodColor="#000000"
+            />
           </filter>
 
           {/* Crystalline edge enhancement */}
           <filter id="crystal-edge">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur"/>
-            <feOffset in="blur" dx="0" dy="0" result="offset"/>
-            <feFlood floodColor="#ffffff" floodOpacity="0.4"/>
-            <feComposite in2="offset" operator="in" result="inner"/>
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="0.5"
+              result="blur"
+            />
+            <feOffset in="blur" dx="0" dy="0" result="offset" />
+            <feFlood floodColor="#ffffff" floodOpacity="0.4" />
+            <feComposite in2="offset" operator="in" result="inner" />
             <feMerge>
-              <feMergeNode in="inner"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="inner" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
@@ -118,96 +193,96 @@ const SharpSculpturalFlow = ({ className = "" }) => {
         </path>
 
         {/* Perfect geometric accent crystals */}
-        <polygon 
-          points="220,130 290,105 340,140 320,180 280,205 230,180 200,145" 
-          fill="url(#metallic-accent)" 
-          opacity="0.9" 
+        <polygon
+          points="220,130 290,105 340,140 320,180 280,205 230,180 200,145"
+          fill="url(#metallic-accent)"
+          opacity="0.9"
           filter="url(#architectural-shadow)"
         >
-          <animateTransform 
-            attributeName="transform" 
-            type="rotate" 
-            values="0 270 155;2 270 155;0 270 155" 
-            dur="25s" 
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 270 155;2 270 155;0 270 155"
+            dur="25s"
             repeatCount="indefinite"
           />
         </polygon>
 
-        <polygon 
-          points="840,200 910,175 960,210 940,250 880,275 820,250 800,215" 
-          fill="url(#metallic-accent)" 
-          opacity="0.85" 
+        <polygon
+          points="840,200 910,175 960,210 940,250 880,275 820,250 800,215"
+          fill="url(#metallic-accent)"
+          opacity="0.85"
           filter="url(#architectural-shadow)"
         >
-          <animateTransform 
-            attributeName="transform" 
-            type="rotate" 
-            values="0 880 225;-1.5 880 225;0 880 225" 
-            dur="30s" 
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 880 225;-1.5 880 225;0 880 225"
+            dur="30s"
             repeatCount="indefinite"
           />
         </polygon>
 
-        <polygon 
-          points="1120,160 1190,135 1240,170 1220,210 1160,235 1100,210 1080,175" 
-          fill="url(#metallic-accent)" 
-          opacity="0.95" 
+        <polygon
+          points="1120,160 1190,135 1240,170 1220,210 1160,235 1100,210 1080,175"
+          fill="url(#metallic-accent)"
+          opacity="0.95"
           filter="url(#architectural-shadow)"
         >
-          <animateTransform 
-            attributeName="transform" 
-            type="rotate" 
-            values="0 1160 185;3 1160 185;0 1160 185" 
-            dur="20s" 
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 1160 185;3 1160 185;0 1160 185"
+            dur="20s"
             repeatCount="indefinite"
           />
         </polygon>
 
         {/* Precision architectural accent lines */}
-        <path 
-          d="M100,340 L260,320 L420,360 L580,340 L740,380 L900,360 L1060,400 L1220,380" 
-          stroke="url(#sharp-gradient-1)" 
-          strokeWidth="2.5" 
-          fill="none" 
+        <path
+          d="M100,340 L260,320 L420,360 L580,340 L740,380 L900,360 L1060,400 L1220,380"
+          stroke="url(#sharp-gradient-1)"
+          strokeWidth="2.5"
+          fill="none"
           opacity="0.7"
           filter="url(#crystal-edge)"
         >
-          <animate 
-            attributeName="stroke-dasharray" 
-            values="0,1120;1120,1120;0,1120" 
-            dur="18s" 
+          <animate
+            attributeName="stroke-dasharray"
+            values="0,1120;1120,1120;0,1120"
+            dur="18s"
             repeatCount="indefinite"
           />
         </path>
 
-        <path 
-          d="M160,480 L320,460 L480,500 L640,480 L800,520 L960,500 L1120,540 L1280,520" 
-          stroke="url(#sharp-gradient-2)" 
-          strokeWidth="2" 
-          fill="none" 
+        <path
+          d="M160,480 L320,460 L480,500 L640,480 L800,520 L960,500 L1120,540 L1280,520"
+          stroke="url(#sharp-gradient-2)"
+          strokeWidth="2"
+          fill="none"
           opacity="0.6"
           filter="url(#crystal-edge)"
         >
-          <animate 
-            attributeName="stroke-dasharray" 
-            values="0,1120;1120,1120;0,1120" 
-            dur="22s" 
+          <animate
+            attributeName="stroke-dasharray"
+            values="0,1120;1120,1120;0,1120"
+            dur="22s"
             repeatCount="indefinite"
           />
         </path>
 
         {/* Ultra-fine detail lines */}
-        <path 
-          d="M0,200 L1400,240" 
-          stroke="#ffffff" 
-          strokeWidth="1" 
-          fill="none" 
+        <path
+          d="M0,200 L1400,240"
+          stroke="#ffffff"
+          strokeWidth="1"
+          fill="none"
           opacity="0.3"
         >
-          <animate 
-            attributeName="stroke-dasharray" 
-            values="0,1400;1400,1400;0,1400" 
-            dur="25s" 
+          <animate
+            attributeName="stroke-dasharray"
+            values="0,1400;1400,1400;0,1400"
+            dur="25s"
             repeatCount="indefinite"
           />
         </path>
@@ -220,44 +295,84 @@ const SharpSculpturalFlow = ({ className = "" }) => {
 export const HeroShadowOverlay = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <svg 
-        width="100%" 
-        height="100%" 
-        viewBox="0 0 1200 800" 
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 1200 800"
         className="w-full h-full opacity-30"
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          <linearGradient id="hero-shadow-1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <linearGradient
+            id="hero-shadow-1"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+          >
             <stop offset="0%" stopColor="#1f2833" stopOpacity="0.8" />
             <stop offset="25%" stopColor="#273848" stopOpacity="0.6" />
             <stop offset="50%" stopColor="#2e3742" stopOpacity="0.4" />
             <stop offset="75%" stopColor="#3d4654" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#4d5866" stopOpacity="0.2" />
           </linearGradient>
-          
+
           <radialGradient id="hero-shadow-radial" cx="50%" cy="50%" r="60%">
             <stop offset="0%" stopColor="#000000" stopOpacity="0.2" />
             <stop offset="50%" stopColor="#273848" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#1f2833" stopOpacity="0.6" />
           </radialGradient>
-          
+
           <filter id="hero-blur">
             <feGaussianBlur stdDeviation="4" />
           </filter>
         </defs>
-        
+
         {/* Flowing shadow shapes */}
-        <ellipse cx="100" cy="100" rx="400" ry="300" fill="url(#hero-shadow-1)" filter="url(#hero-blur)">
-          <animate attributeName="rx" values="400;500;400" dur="10s" repeatCount="indefinite" />
-          <animate attributeName="ry" values="300;400;300" dur="12s" repeatCount="indefinite" />
+        <ellipse
+          cx="100"
+          cy="100"
+          rx="400"
+          ry="300"
+          fill="url(#hero-shadow-1)"
+          filter="url(#hero-blur)"
+        >
+          <animate
+            attributeName="rx"
+            values="400;500;400"
+            dur="10s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="ry"
+            values="300;400;300"
+            dur="12s"
+            repeatCount="indefinite"
+          />
         </ellipse>
-        
-        <ellipse cx="1100" cy="700" rx="500" ry="400" fill="url(#hero-shadow-radial)" filter="url(#hero-blur)">
-          <animate attributeName="rx" values="500;600;500" dur="15s" repeatCount="indefinite" />
-          <animate attributeName="ry" values="400;500;400" dur="18s" repeatCount="indefinite" />
+
+        <ellipse
+          cx="1100"
+          cy="700"
+          rx="500"
+          ry="400"
+          fill="url(#hero-shadow-radial)"
+          filter="url(#hero-blur)"
+        >
+          <animate
+            attributeName="rx"
+            values="500;600;500"
+            dur="15s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="ry"
+            values="400;500;400"
+            dur="18s"
+            repeatCount="indefinite"
+          />
         </ellipse>
-        
+
         {/* Wavy overlay pattern */}
         <path
           d="M0,200 Q300,100 600,200 T1200,200 L1200,800 L0,800 Z"
@@ -283,15 +398,15 @@ const HomePage = () => {
 
   // Color palette
   const colors = {
-    darkNavy: '#1f2833',
-    navy: '#273848',
-    darkGray: '#2e3742',
-    mediumGray: '#3d4654',
-    gray: '#4d5866',
-    lightGray: '#6d7885',
-    paleGray: '#9ba3ad',
-    silver: '#c5c9ce',
-    offWhite: '#e8e9eb'
+    darkNavy: "#1f2833",
+    navy: "#273848",
+    darkGray: "#2e3742",
+    mediumGray: "#3d4654",
+    gray: "#4d5866",
+    lightGray: "#6d7885",
+    paleGray: "#9ba3ad",
+    silver: "#c5c9ce",
+    offWhite: "#e8e9eb",
   };
 
   const slides = [
@@ -304,32 +419,35 @@ const HomePage = () => {
       ),
       subtitle:
         "Deploying capital intelligently by leveraging deep, on-the-ground knowledge",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       alt: "African business district with modern buildings",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 50%, ${colors.darkGray}99 100%)`
+      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 50%, ${colors.darkGray}99 100%)`,
     },
     {
       title: (
         <>
-          Risk Mitigation and <span style={{ color: colors.paleGray }}>Structuring</span>
+          Risk Mitigation and{" "}
+          <span style={{ color: colors.paleGray }}>Structuring</span>
         </>
       ),
       subtitle:
         "Actively managing risk through structuring and diversification",
       image: "/home12.jpg",
       alt: "African financial district skyline",
-      overlayGradient: `linear-gradient(135deg, ${colors.navy}ee 0%, ${colors.darkGray}cc 50%, ${colors.mediumGray}99 100%)`
+      overlayGradient: `linear-gradient(135deg, ${colors.navy}ee 0%, ${colors.darkGray}cc 50%, ${colors.mediumGray}99 100%)`,
     },
     {
       title: (
         <>
-          Sustainable Value <span style={{ color: colors.offWhite }}>Creation</span>
+          Sustainable Value{" "}
+          <span style={{ color: colors.offWhite }}>Creation</span>
         </>
       ),
       subtitle: "Building long-term value for our stakeholders",
       image: "/home11.jpg",
       alt: "African manufacturing and industrial activity",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkGray}ee 0%, ${colors.mediumGray}cc 50%, ${colors.gray}99 100%)`
+      overlayGradient: `linear-gradient(135deg, ${colors.darkGray}ee 0%, ${colors.mediumGray}cc 50%, ${colors.gray}99 100%)`,
     },
   ];
 
@@ -365,7 +483,6 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      
       {/* Hero Slider with Shadow Overlays */}
       <section
         className="relative h-[80vh] min-h-[300px] overflow-hidden"
@@ -388,9 +505,7 @@ const HomePage = () => {
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 animate-pulse flex items-center justify-center">
-                  <div className="text-gray-300 text-sm sm:text-lg">
-                    ...
-                  </div>
+                  <div className="text-gray-300 text-sm sm:text-lg">...</div>
                 </div>
               )}
             </div>
@@ -398,7 +513,7 @@ const HomePage = () => {
         </div>
 
         {/* Dynamic Gradient Overlay based on slide */}
-        <div 
+        <div
           className="absolute inset-0 transition-all duration-1000"
           style={{ background: slides[currentSlide].overlayGradient }}
         />
@@ -412,20 +527,31 @@ const HomePage = () => {
               <h1 className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-white transform transition-all duration-500 opacity-100">
                 {slides[currentSlide].title}
               </h1>
-              <p className="gellix-font font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-2xl transform transition-all duration-500 opacity-100"
-                 style={{ color: colors.silver }}>
+              <p
+                className="gellix-font font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-2xl transform transition-all duration-500 opacity-100"
+                style={{ color: colors.silver }}
+              >
                 {slides[currentSlide].subtitle}
               </p>
-              <button 
+              <button
                 className="group flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                style={{ 
+                style={{
                   background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
-                  color: colors.darkNavy
+                  color: colors.darkNavy,
                 }}
-                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("focus")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
-                <span className="gellix-font font-medium">Explore Opportunities</span>
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <span className="gellix-font font-medium">
+                  Explore Opportunities
+                </span>
+                <ArrowRight
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </button>
             </div>
           </div>
@@ -435,16 +561,30 @@ const HomePage = () => {
         <button
           onClick={prevSlide}
           className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
-          style={{ backgroundColor: `${colors.darkNavy}cc`, border: `1px solid ${colors.silver}40` }}
+          style={{
+            backgroundColor: `${colors.darkNavy}cc`,
+            border: `1px solid ${colors.silver}40`,
+          }}
         >
-          <ChevronLeft size={20} className="sm:w-6 sm:h-6" style={{ color: colors.offWhite }} />
+          <ChevronLeft
+            size={20}
+            className="sm:w-6 sm:h-6"
+            style={{ color: colors.offWhite }}
+          />
         </button>
         <button
           onClick={nextSlide}
           className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
-          style={{ backgroundColor: `${colors.darkNavy}cc`, border: `1px solid ${colors.silver}40` }}
+          style={{
+            backgroundColor: `${colors.darkNavy}cc`,
+            border: `1px solid ${colors.silver}40`,
+          }}
         >
-          <ChevronRight size={20} className="sm:w-6 sm:h-6" style={{ color: colors.offWhite }} />
+          <ChevronRight
+            size={20}
+            className="sm:w-6 sm:h-6"
+            style={{ color: colors.offWhite }}
+          />
         </button>
 
         {/* Slide Indicators with gradient colors */}
@@ -454,13 +594,15 @@ const HomePage = () => {
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide
-                  ? "scale-125"
-                  : "hover:scale-110"
+                index === currentSlide ? "scale-125" : "hover:scale-110"
               }`}
-              style={{ 
-                backgroundColor: index === currentSlide ? colors.offWhite : colors.paleGray,
-                boxShadow: index === currentSlide ? `0 0 10px ${colors.offWhite}80` : 'none'
+              style={{
+                backgroundColor:
+                  index === currentSlide ? colors.offWhite : colors.paleGray,
+                boxShadow:
+                  index === currentSlide
+                    ? `0 0 10px ${colors.offWhite}80`
+                    : "none",
               }}
             />
           ))}
@@ -471,16 +613,31 @@ const HomePage = () => {
       {/* Add custom CSS animations */}
       <style jsx>{`
         @keyframes float0 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-10px) rotate(180deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(180deg);
+          }
         }
         @keyframes float1 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(120deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(120deg);
+          }
         }
         @keyframes float2 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(240deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-8px) rotate(240deg);
+          }
         }
       `}</style>
     </div>

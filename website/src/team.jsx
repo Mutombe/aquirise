@@ -37,8 +37,6 @@ const colors = {
   offWhite: "#e8e9eb",
 };
 
-
-
 // Team Member Card Component
 const TeamCard = ({ member, index }) => (
   <div
@@ -135,11 +133,11 @@ const TeamLeadershipSection = () => {
         }
       `}</style>
 
-    <section className="relative py-24 bg-white overflow-hidden">
-      {/* Background Patterns - Circular pattern now more visible */}
-      <SharpSculpturalFlow />
-      
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <section className="relative py-24 bg-white overflow-hidden" id="team">
+        {/* Background Patterns - Circular pattern now more visible */}
+        <SharpSculpturalFlow />
+
+        <div className="relative z-10 max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <h2
@@ -335,7 +333,10 @@ const TeamCards = () => {
                     <Phone size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </a>
                   <a
-                    href={`https://twitter.com/${member.twitter.replace("@", "")}`}
+                    href={`https://twitter.com/${member.twitter.replace(
+                      "@",
+                      ""
+                    )}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/35 hover:scale-110 transition-all duration-300 active:scale-95"
@@ -376,26 +377,35 @@ const TeamCards = () => {
                     href={`mailto:${member.email}`}
                     className="gellix-font hover:text-blue-600 transition-colors duration-300 flex items-center space-x-2 text-gray-600 min-w-0"
                   >
-                    <Mail size={12} className="sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                    <Mail
+                      size={12}
+                      className="sm:w-3.5 sm:h-3.5 flex-shrink-0"
+                    />
                     <span className="truncate">{member.email}</span>
                   </a>
                 </div>
-                
+
                 {/* Phone */}
                 <div className="flex items-center">
                   <a
                     href={`tel:${member.phone}`}
                     className="gellix-font hover:text-blue-600 transition-colors duration-300 flex items-center space-x-2 text-gray-600"
                   >
-                    <Phone size={12} className="sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                    <Phone
+                      size={12}
+                      className="sm:w-3.5 sm:h-3.5 flex-shrink-0"
+                    />
                     <span>{member.phone}</span>
                   </a>
                 </div>
-                
+
                 {/* Twitter */}
                 <div className="flex items-center">
                   <span className="gellix-font flex items-center space-x-2 text-gray-600">
-                    <Twitter size={12} className="sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                    <Twitter
+                      size={12}
+                      className="sm:w-3.5 sm:h-3.5 flex-shrink-0"
+                    />
                     <span>{member.twitter}</span>
                   </span>
                 </div>
@@ -479,7 +489,11 @@ const TeamSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
             <button
               className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("team")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               style={{
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,

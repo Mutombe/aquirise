@@ -270,7 +270,11 @@ const ContactPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
             <button
               className="font-light inline-flex items-center space-x-3 px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group"
-                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                             onClick={() =>
+                document
+                  .getElementById("contact-section")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               style={{
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,
@@ -338,7 +342,8 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative py-16 sm:py-20 bg-white">
+      <div className="relative py-16 sm:py-20 bg-white"
+        id="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">

@@ -31,8 +31,8 @@ import { GiFarmTractor } from "react-icons/gi";
 import { FaAmericanSignLanguageInterpreting } from "react-icons/fa";
 import { LiaGopuramSolid } from "react-icons/lia";
 import { FaPeopleCarryBox } from "react-icons/fa6";
-import { StonePileSculpturalFlow} from "./sculpture";
-import ValuesSection from './value';
+import { StonePileSculpturalFlow } from "./sculpture";
+import ValuesSection from "./value";
 
 const colors = {
   darkNavy: "#1f2833",
@@ -153,7 +153,10 @@ const StorySection = () => {
   const scrollY = useScrollAnimation();
 
   return (
-    <section id="story" className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section
+      id="story"
+      className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           {/* Content */}
@@ -197,6 +200,7 @@ const StorySection = () => {
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,
               }}
+              onClick={() => (window.location.href = "/investee-companies")}
             >
               <span>View Our Portfolio</span>
               <ArrowRight
@@ -341,10 +345,7 @@ const PhilosophySection = () => {
           ].map((pillar, index) => {
             const Icon = pillar.icon;
             return (
-              <div
-                key={index}
-                className="group relative h-full flex"
-              >
+              <div key={index} className="group relative h-full flex">
                 <div className="bg-white rounded-sm p-10 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-slate-200 flex flex-col w-full">
                   <div
                     className="w-20 h-20 rounded-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"

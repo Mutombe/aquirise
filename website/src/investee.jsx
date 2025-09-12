@@ -94,7 +94,11 @@ const InvesteeCompaniesPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
              <button
                className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                                            onClick={() =>
+                document
+                  .getElementById("portfolio")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
 
                style={{
                  background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
@@ -112,7 +116,8 @@ const InvesteeCompaniesPage = () => {
       </div>
 
       {/* Companies Section  */}
-      <div className="relative py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="relative py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-slate-100"
+        id="portfolio">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header  */}
           <div className="text-center mb-12 sm:mb-16">

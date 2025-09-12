@@ -60,7 +60,8 @@ const InvestmentFocusSection = () => {
       {/* Background Patterns - Circular pattern now more visible */}
       <SharpSculpturalFlow />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-6"
+        id="focus">
         <div className="text-center mb-16">
           <h2
             className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
@@ -137,7 +138,8 @@ const InvestmentFocusSection = () => {
               />
 
               {/* Arrow Icon */}
-              <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute top-6 right-6 opacity-100 group-hover:opacity-100 transition-opacity duration-300"
+              onClick={() => (window.location.href = "/about")}>
                 <HiMiniArrowTrendingUp
                   size={20}
                   style={{ color: item.hoverBg }}

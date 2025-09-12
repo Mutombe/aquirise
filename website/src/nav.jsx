@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Phone, Mail, Globe, ChevronDown, Building, Users, Target, History } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  Phone,
+  Mail,
+  Globe,
+  ChevronDown,
+  Building,
+  Users,
+  Target,
+  History,
+  Shield,
+  TrendingUp,
+} from "lucide-react";
 import { SiLocal } from "react-icons/si";
 import { SiWebmoney } from "react-icons/si";
 import { SiSmartthings } from "react-icons/si";
@@ -21,14 +33,125 @@ const useScrollAnimation = () => {
   return scrollY;
 };
 
+// Subtle Shadow Pattern for Navigation
+const NavShadowPattern = () => {
+  const colors = {
+    darkNavy: "#1f2833",
+    navy: "#273848",
+    darkGray: "#2e3742",
+    mediumGray: "#3d4654",
+    gray: "#4d5866",
+    lightGray: "#6d7885",
+    paleGray: "#9ba3ad",
+    silver: "#c5c9ce",
+    offWhite: "#e8e9eb",
+  };
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 1400 120"
+        className="w-full h-full"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <defs>
+          <linearGradient id="nav-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor={colors.offWhite} stopOpacity="0.05" />
+            <stop offset="20%" stopColor={colors.silver} stopOpacity="0.08" />
+            <stop offset="40%" stopColor={colors.paleGray} stopOpacity="0.06" />
+            <stop
+              offset="60%"
+              stopColor={colors.lightGray}
+              stopOpacity="0.04"
+            />
+            <stop offset="80%" stopColor={colors.gray} stopOpacity="0.06" />
+            <stop
+              offset="100%"
+              stopColor={colors.mediumGray}
+              stopOpacity="0.05"
+            />
+          </linearGradient>
+
+          <filter id="nav-blur">
+            <feGaussianBlur stdDeviation="2" />
+          </filter>
+        </defs>
+
+        <rect
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+          fill="url(#nav-gradient)"
+          filter="url(#nav-blur)"
+        />
+
+        <ellipse
+          cx="200"
+          cy="60"
+          rx="150"
+          ry="40"
+          fill={colors.paleGray}
+          opacity="0.03"
+          filter="url(#nav-blur)"
+        >
+          <animate
+            attributeName="rx"
+            values="150;180;150"
+            dur="10s"
+            repeatCount="indefinite"
+          />
+        </ellipse>
+
+        <ellipse
+          cx="1200"
+          cy="60"
+          rx="200"
+          ry="50"
+          fill={colors.silver}
+          opacity="0.02"
+          filter="url(#nav-blur)"
+        >
+          <animate
+            attributeName="rx"
+            values="200;250;200"
+            dur="15s"
+            repeatCount="indefinite"
+          />
+        </ellipse>
+      </svg>
+    </div>
+  );
+};
+
 // Enhanced Navigation Component
-const Navigation = ({ currentPage = "home", setCurrentPage }) => {
+const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const dropdownRef = useRef(null);
   const scrollY = useScrollAnimation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Get current page from location
+  const currentPage = location.pathname === '/' ? 'home' : location.pathname.slice(1);
+
+  // Color palette
+  const colors = {
+    darkNavy: "#1f2833",
+    navy: "#273848",
+    darkGray: "#2e3742",
+    mediumGray: "#3d4654",
+    gray: "#4d5866",
+    lightGray: "#6d7885",
+    paleGray: "#9ba3ad",
+    silver: "#c5c9ce",
+    offWhite: "#e8e9eb",
+  };
 
   useEffect(() => {
     setIsScrolled(scrollY > 80);
@@ -45,33 +168,66 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setAboutDropdownOpen(false);
+    setMobileAboutOpen(false);
+  }, [location.pathname]);
+
   const navItems = [
-    { name: "Home", id: "home" },
-    { name: "Our Focus", id: "focus" },
-    { 
-      name: "About Us", 
+    { name: "Home", id: "home", path: "/" },
+    {
+      name: "About Us",
       id: "about",
-      hasDropdown: true,
+      path: "/about",
+      hasDropdown: false,
       dropdownItems: [
-        { name: "Our Story", id: "about", icon: History },
-        { name: "Localisation", id: "localisation", icon: SiLocal },
-        { name: "De-risking", id: "de-risking", icon: SiWebmoney },
-        { name: "Value Creation", id: "value-creation", icon: GiTakeMyMoney }
+        { 
+          name: "Investment Focus", 
+          id: "focus", 
+          path: "/focus", 
+          icon: Target, 
+          color: colors.darkNavy 
+        },
+        { 
+          name: "De-risking", 
+          id: "de-risking", 
+          path: "/de-risking", 
+          icon: Shield, 
+          color: colors.darkGray 
+        },
+        { 
+          name: "Value Creation", 
+          id: "value-creation", 
+          path: "/value-creation", 
+          icon: TrendingUp, 
+          color: colors.mediumGray 
+        },
+        { 
+          name: "Localisation", 
+          id: "localisation", 
+          path: "/localisation", 
+          icon: SiLocal, 
+          color: colors.gray 
+        },
       ]
     },
-    { name: "Investee Companies", id: "investee-companies" },
-    { name: "Team", id: "team" },
-    { name: "Contact", id: "contact" },
+    { name: "Investee Companies", id: "investee-companies", path: "/investee-companies" },
+    { name: "Team", id: "team", path: "/team" },
+    { name: "Contact", id: "contact", path: "/contact" },
   ];
 
-  const handleNavClick = (pageId) => {
-    if (setCurrentPage) {
-      setCurrentPage(pageId);
-    }
+  const handleNavClick = (path) => {
+    navigate(path);
     setIsOpen(false);
     setAboutDropdownOpen(false);
     setMobileAboutOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const isCurrentPage = (itemId, dropdownItems = []) => {
+    return currentPage === itemId || dropdownItems.some(subItem => currentPage === subItem.id);
   };
 
   return (
@@ -79,89 +235,187 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-xl border-b border-gray-200/80 shadow-xl"
-            : "bg-white/95 backdrop-blur-xl border-b border-gray-200/80"
+            ? "bg-white/98 backdrop-blur-xl shadow-2xl"
+            : "bg-white/95 backdrop-blur-xl shadow-lg"
         }`}
+        style={{
+          borderBottom: `1px solid ${
+            isScrolled ? colors.silver : colors.offWhite
+          }40`,
+          boxShadow: isScrolled
+            ? `0 20px 40px ${colors.paleGray}20, 0 10px 20px ${colors.silver}15`
+            : `0 10px 30px ${colors.offWhite}30, 0 5px 15px ${colors.silver}10`,
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Subtle pattern overlay */}
+        <NavShadowPattern />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className={`flex items-center justify-between transition-all duration-700 ${
               isScrolled ? "h-20 sm:h-24" : "h-24 sm:h-28"
             }`}
           >
-            {/* Logo */}
-            <div
-              onClick={() => handleNavClick("home")}
+            {/* Logo with hover effect */}
+            <Link
+              to="/"
               className="flex items-center group cursor-pointer transition-all duration-500 hover:scale-105"
             >
-              <img
-                src="/logo2.png"
-                alt="Acquirise Logo"
-                className={`transition-all duration-500 ${
-                  isScrolled ? "h-24 sm:h-26" : "h-28 sm:h-32"
-                } w-auto`}
-              />
-            </div>
+              <div className="relative">
+                <img
+                  src="/logo2.png"
+                  alt="Acquirise Logo"
+                  className={`transition-all duration-500 ${
+                    isScrolled ? "h-30 sm:h-26" : "h-30 sm:h-26"
+                  } w-auto relative z-10`}
+                />
+                {/* Logo glow effect */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(circle, ${colors.paleGray}20 0%, transparent 70%)`,
+                    filter: "blur(20px)",
+                    transform: "scale(1.5)",
+                  }}
+                />
+              </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center">
               <div className="flex items-center space-x-3">
                 {navItems.map((item, index) => (
-                  <div key={item.name} className="relative" ref={item.hasDropdown ? dropdownRef : null}>
+                  <div
+                    key={item.name}
+                    className="relative"
+                    ref={item.hasDropdown ? dropdownRef : null}
+                  >
                     {item.hasDropdown ? (
                       <>
                         <button
-                          onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-                          className={`relative px-3 py-2 rounded-sm text-lg font-medium transition-all duration-300 group flex items-center space-x-1 ${
-                            currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id)
-                              ? "bg-white shadow-lg border border translate-x-2"
-                              : "hover:bg-gray-50"
+                          onClick={() =>
+                            setAboutDropdownOpen(!aboutDropdownOpen)
+                          }
+                          className={`relative px-4 py-2.5 rounded-sm text-lg font-medium transition-all duration-300 group flex items-center space-x-1.5 ${
+                            isCurrentPage(item.id, item.dropdownItems)
+                              ? "bg-white shadow-xl translate-x-1"
+                              : ""
                           }`}
                           style={{
-                            color: currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id) ? '#273848' : 'rgba(0, 0, 0, 0.7)',
-                            borderColor: currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id) ? '#273848' : 'transparent',
+                            color: isCurrentPage(item.id, item.dropdownItems)
+                                ? colors.navy
+                                : colors.gray,
+                            borderLeft: isCurrentPage(item.id, item.dropdownItems)
+                                ? `3px solid ${colors.navy}`
+                                : "3px solid transparent",
+                            background: isCurrentPage(item.id, item.dropdownItems)
+                                ? `linear-gradient(90deg, ${colors.offWhite}10 0%, white 100%)`
+                                : "transparent",
+                            boxShadow: isCurrentPage(item.id, item.dropdownItems)
+                                ? `0 4px 12px ${colors.paleGray}30`
+                                : "none",
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isCurrentPage(item.id, item.dropdownItems)) {
+                              e.currentTarget.style.background = `linear-gradient(90deg, ${colors.offWhite}05 0%, transparent 100%)`;
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isCurrentPage(item.id, item.dropdownItems)) {
+                              e.currentTarget.style.background = "transparent";
+                            }
                           }}
                         >
-                          <span className="gellix-font relative z-10">{item.name}</span>
-                          <ChevronDown 
-                            size={16} 
-                            className={`transform transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''}`}
+                          <span className="gravesend-sans font-light relative z-10">
+                            {item.name}
+                          </span>
+                          <ChevronDown
+                            size={16}
+                            className={`transform transition-transform duration-200 ${
+                              aboutDropdownOpen ? "rotate-180" : ""
+                            }`}
+                            style={{ color: colors.lightGray }}
                           />
-                          {(currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id)) && (
-                            <div
-                              className="absolute inset-0 rounded-sm transition-all duration-300 opacity-10"
-                              style={{ backgroundColor: '#feffffff' }}
-                            />
-                          )}
                         </button>
-                        
-                        {/* Desktop Dropdown */}
+
+                        {/* Enhanced Desktop Dropdown */}
                         {aboutDropdownOpen && (
-                          <div className="absolute top-full left-0 mt-2 w-64 bg-white/98 backdrop-blur-xl rounded-xl shadow-2xl border border-gray-200/80 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                          <div
+                            className="absolute top-full left-0 mt-3 w-72 bg-white/98 backdrop-blur-xl rounded-lg shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200 overflow-hidden"
+                            style={{
+                              border: `1px solid ${colors.offWhite}60`,
+                              boxShadow: `0 20px 40px ${colors.paleGray}25, 0 10px 20px ${colors.silver}15`,
+                            }}
+                          >
+                            {/* Dropdown header gradient */}
+                            <div
+                              className="absolute top-0 left-0 right-0 h-1"
+                              style={{
+                                background: `linear-gradient(90deg, ${colors.darkNavy} 0%, ${colors.mediumGray} 50%, ${colors.lightGray} 100%)`,
+                              }}
+                            />
+
                             {item.dropdownItems.map((subItem, subIndex) => {
                               const IconComponent = subItem.icon;
                               return (
                                 <button
                                   key={subItem.name}
-                                  onClick={() => handleNavClick(subItem.id)}
-                                  className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-all duration-200 flex items-center space-x-3 group ${
-                                    currentPage === subItem.id ? 'bg-gray-50 border-r-2' : ''
+                                  onClick={() => handleNavClick(subItem.path)}
+                                  className={`w-full text-left px-5 py-3.5 transition-all duration-200 flex items-center space-x-3 group relative overflow-hidden ${
+                                    currentPage === subItem.id
+                                      ? "bg-gradient-to-r"
+                                      : ""
                                   }`}
                                   style={{
-                                    borderColor: currentPage === subItem.id ? '#273848' : 'transparent',
+                                    background:
+                                      currentPage === subItem.id
+                                        ? `linear-gradient(90deg, ${colors.offWhite}20 0%, transparent 100%)`
+                                        : "transparent",
+                                    borderLeft:
+                                      currentPage === subItem.id
+                                        ? `3px solid ${subItem.color}`
+                                        : "3px solid transparent",
+                                  }}
+                                  onMouseEnter={(e) => {
+                                    if (currentPage !== subItem.id) {
+                                      e.currentTarget.style.background = `linear-gradient(90deg, ${colors.offWhite}10 0%, transparent 100%)`;
+                                      e.currentTarget.style.borderLeft = `3px solid ${subItem.color}40`;
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    if (currentPage !== subItem.id) {
+                                      e.currentTarget.style.background =
+                                        "transparent";
+                                      e.currentTarget.style.borderLeft =
+                                        "3px solid transparent";
+                                    }
                                   }}
                                 >
-                                  <IconComponent 
-                                    size={18} 
-                                    style={{ color: currentPage === subItem.id ? '#273848' : 'rgba(0, 0, 0, 0.6)' }}
-                                    className="group-hover:scale-110 transition-transform duration-200"
-                                  />
-                                  <span 
-                                    className="gellix-font font-medium"
-                                    style={{ color: currentPage === subItem.id ? '#273848' : 'rgba(0, 0, 0, 0.8)' }}
+                                  <div
+                                    className="p-2 rounded-sm transition-all duration-300 group-hover:scale-110"
+                                    style={{
+                                      backgroundColor: `${subItem.color}10`,
+                                      border: `1px solid ${subItem.color}20`,
+                                    }}
                                   >
-                                    {subItem.name}
-                                  </span>
+                                    <IconComponent
+                                      size={18}
+                                      style={{ color: subItem.color }}
+                                    />
+                                  </div>
+                                  <div>
+                                    <span
+                                      className="gellix-font font-medium block"
+                                      style={{
+                                        color:
+                                          currentPage === subItem.id
+                                            ? colors.darkNavy
+                                            : colors.gray,
+                                      }}
+                                    >
+                                      {subItem.name}
+                                    </span>
+                                  </div>
                                 </button>
                               );
                             })}
@@ -169,56 +423,88 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
                         )}
                       </>
                     ) : (
-                      <button
-                        onClick={() => handleNavClick(item.id)}
-                        className={`relative px-3 py-2 rounded-sm text-lg font-medium transition-all duration-300 group ${
+                      <Link
+                        to={item.path}
+                        className={`relative px-4 py-2.5 rounded-sm text-lg font-medium transition-all duration-300 group block ${
                           currentPage === item.id
-                            ? "bg-white shadow-lg border border translate-x-2"
-                            : "hover:bg-gray-50"
+                            ? "bg-white shadow-xl translate-x-1"
+                            : ""
                         }`}
                         style={{
-                          color: currentPage === item.id ? '#273848' : 'rgba(0, 0, 0, 0.7)',
-                          borderColor: currentPage === item.id ? '#273848' : 'transparent',
+                          color:
+                            currentPage === item.id ? colors.navy : colors.gray,
+                          borderLeft:
+                            currentPage === item.id
+                              ? `3px solid ${colors.navy}`
+                              : "3px solid transparent",
+                          background:
+                            currentPage === item.id
+                              ? `linear-gradient(90deg, ${colors.offWhite}10 0%, white 100%)`
+                              : "transparent",
+                          boxShadow:
+                            currentPage === item.id
+                              ? `0 4px 12px ${colors.paleGray}30`
+                              : "none",
+                        }}
+                        onMouseEnter={(e) => {
+                          if (currentPage !== item.id) {
+                            e.currentTarget.style.background = `linear-gradient(90deg, ${colors.offWhite}05 0%, transparent 100%)`;
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (currentPage !== item.id) {
+                            e.currentTarget.style.background = "transparent";
+                          }
                         }}
                       >
-                        <span className="gellix-font relative z-10">{item.name}</span>
-                        {currentPage === item.id && (
-                          <div
-                            className="absolute inset-0 rounded-sm transition-all duration-300 opacity-10"
-                            style={{ backgroundColor: '#feffffff' }}
-                          />
-                        )}
-                      </button>
+                        <span className="gravesend-sans font-meduim relative z-10">
+                          {item.name}
+                        </span>
+                      </Link>
                     )}
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Enhanced Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-3 rounded-xl transition-all duration-300 hover:bg-gray-100"
-              style={{ color: '#273848' }}
+              className="lg:hidden p-3 rounded-lg transition-all duration-300"
+              style={{
+                background: isOpen
+                  ? `linear-gradient(135deg, ${colors.offWhite} 0%, ${colors.silver}20 100%)`
+                  : "transparent",
+                boxShadow: isOpen ? `0 4px 12px ${colors.paleGray}20` : "none",
+              }}
             >
               <div className="relative w-7 h-7">
                 <span
                   className={`absolute top-0 left-0 w-7 h-0.5 rounded-full transform transition-all duration-300 ${
                     isOpen ? "rotate-45 translate-y-3" : "translate-y-1"
                   }`}
-                  style={{ backgroundColor: '#273848' }}
+                  style={{
+                    backgroundColor: isOpen ? colors.darkNavy : colors.navy,
+                    boxShadow: `0 1px 3px ${colors.paleGray}30`,
+                  }}
                 />
                 <span
                   className={`absolute top-0 left-0 w-7 h-0.5 rounded-full transform transition-all duration-300 ${
                     isOpen ? "opacity-0" : "translate-y-3 opacity-100"
                   }`}
-                  style={{ backgroundColor: '#273848' }}
+                  style={{
+                    backgroundColor: colors.mediumGray,
+                    boxShadow: `0 1px 3px ${colors.paleGray}30`,
+                  }}
                 />
                 <span
                   className={`absolute top-0 left-0 w-7 h-0.5 rounded-full transform transition-all duration-300 ${
                     isOpen ? "-rotate-45 translate-y-3" : "translate-y-5"
                   }`}
-                  style={{ backgroundColor: '#273848' }}
+                  style={{
+                    backgroundColor: isOpen ? colors.darkGray : colors.gray,
+                    boxShadow: `0 1px 3px ${colors.paleGray}30`,
+                  }}
                 />
               </div>
             </button>
@@ -231,8 +517,14 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="bg-white/98 backdrop-blur-xl border-t border-gray-200">
-            <div className="px-6 py-8">
+          <div
+            className="bg-white/98 backdrop-blur-xl"
+            style={{
+              borderTop: `1px solid ${colors.offWhite}40`,
+              background: `linear-gradient(180deg, white 0%, ${colors.offWhite}05 100%)`,
+            }}
+          >
+            <div className="px-1 py-8">
               <div className="space-y-2">
                 {navItems.map((item, index) => (
                   <div key={item.name}>
@@ -241,122 +533,184 @@ const Navigation = ({ currentPage = "home", setCurrentPage }) => {
                         <button
                           onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                           className={`block w-full text-left px-6 py-4 rounded-sm font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] ${
-                            currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id)
-                              ? "shadow-lg border translate-x-2"
-                              : "hover:bg-gray-50 hover:translate-x-1"
+                            isCurrentPage(item.id, item.dropdownItems)
+                              ? "shadow-lg translate-x-2"
+                              : "hover:translate-x-1"
                           }`}
                           style={{
-                            color: currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id) ? '#273848' : 'rgba(0, 0, 0, 0.7)',
-                            borderColor: currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id) ? '#273848' : 'transparent',
-                            backgroundColor: currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id) ? 'white' : 'transparent',
+                            color: isCurrentPage(item.id, item.dropdownItems)
+                                ? colors.navy
+                                : colors.gray,
+                            borderLeft: isCurrentPage(item.id, item.dropdownItems)
+                                ? `4px solid ${colors.navy}`
+                                : "4px solid transparent",
+                            backgroundColor: isCurrentPage(item.id, item.dropdownItems)
+                                ? `${colors.offWhite}10`
+                                : "transparent",
+                            boxShadow: isCurrentPage(item.id, item.dropdownItems)
+                                ? `0 4px 12px ${colors.paleGray}20`
+                                : "none",
                             transitionDelay: `${index * 50}ms`,
                           }}
                         >
                           <div className="gellix-font flex items-center justify-between">
                             {item.name}
                             <div className="flex items-center space-x-2">
-                              {(currentPage === item.id || item.dropdownItems?.some(subItem => currentPage === subItem.id)) && (
-                                <div 
-                                  className="w-2 h-2 rounded-sm"
-                                  style={{ backgroundColor: '#273848' }}
+                              {isCurrentPage(item.id, item.dropdownItems) && (
+                                <div
+                                  className="w-2 h-2 rounded-full"
+                                  style={{ backgroundColor: colors.navy }}
                                 />
                               )}
-                              <ChevronDown 
-                                size={18} 
-                                className={`transform transition-transform duration-200 ${mobileAboutOpen ? 'rotate-180' : ''}`}
-                                style={{ color: '#273848' }}
+                              <ChevronDown
+                                size={18}
+                                className={`transform transition-transform duration-200 ${
+                                  mobileAboutOpen ? "rotate-180" : ""
+                                }`}
+                                style={{ color: colors.lightGray }}
                               />
                             </div>
                           </div>
                         </button>
-                        
+
                         {/* Mobile Dropdown */}
                         <div
                           className={`overflow-hidden transition-all duration-300 ${
-                            mobileAboutOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
+                            mobileAboutOpen
+                              ? "max-h-96 opacity-100 mt-2"
+                              : "max-h-0 opacity-0"
                           }`}
                         >
                           <div className="ml-4 space-y-1">
                             {item.dropdownItems.map((subItem, subIndex) => {
                               const IconComponent = subItem.icon;
                               return (
-                                <button
+                                <Link
                                   key={subItem.name}
-                                  onClick={() => handleNavClick(subItem.id)}
+                                  to={subItem.path}
                                   className={`block w-full text-left px-4 py-3 rounded-sm font-medium transition-all duration-300 transform hover:scale-[1.01] flex items-center space-x-3 ${
                                     currentPage === subItem.id
-                                      ? "shadow-md border bg-white translate-x-1"
-                                      : "hover:bg-gray-50 hover:translate-x-0.5"
+                                      ? "shadow-md bg-white translate-x-1"
+                                      : "hover:translate-x-0.5"
                                   }`}
                                   style={{
-                                    color: currentPage === subItem.id ? '#273848' : 'rgba(0, 0, 0, 0.6)',
-                                    borderColor: currentPage === subItem.id ? '#273848' : 'transparent',
+                                    color:
+                                      currentPage === subItem.id
+                                        ? colors.darkNavy
+                                        : colors.gray,
+                                    borderLeft:
+                                      currentPage === subItem.id
+                                        ? `3px solid ${subItem.color}`
+                                        : "3px solid transparent",
+                                    backgroundColor:
+                                      currentPage === subItem.id
+                                        ? `${colors.offWhite}08`
+                                        : "transparent",
                                     transitionDelay: `${subIndex * 30}ms`,
                                   }}
                                 >
-                                  <IconComponent 
-                                    size={16} 
-                                    style={{ color: currentPage === subItem.id ? '#273848' : 'rgba(0, 0, 0, 0.5)' }}
-                                  />
-                                  <span className="gellix-font">{subItem.name}</span>
-                                </button>
+                                  <div
+                                    className="p-1.5 rounded-sm"
+                                    style={{
+                                      backgroundColor: `${subItem.color}10`,
+                                      border: `1px solid ${subItem.color}20`,
+                                    }}
+                                  >
+                                    <IconComponent
+                                      size={16}
+                                      style={{ color: subItem.color }}
+                                    />
+                                  </div>
+                                  <span className="gellix-font">
+                                    {subItem.name}
+                                  </span>
+                                </Link>
                               );
                             })}
                           </div>
                         </div>
                       </>
                     ) : (
-                      <button
-                        onClick={() => handleNavClick(item.id)}
+                      <Link
+                        to={item.path}
                         className={`block w-full text-left px-6 py-4 rounded-sm font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] ${
                           currentPage === item.id
-                            ? "shadow-lg border translate-x-2"
-                            : "hover:bg-gray-50 hover:translate-x-1"
+                            ? "shadow-lg translate-x-2"
+                            : "hover:translate-x-1"
                         }`}
                         style={{
-                          color: currentPage === item.id ? '#273848' : 'rgba(0, 0, 0, 0.7)',
-                          borderColor: currentPage === item.id ? '#273848' : 'transparent',
-                          backgroundColor: currentPage === item.id ? 'white' : 'transparent',
+                          color:
+                            currentPage === item.id ? colors.navy : colors.gray,
+                          borderLeft:
+                            currentPage === item.id
+                              ? `4px solid ${colors.navy}`
+                              : "4px solid transparent",
+                          backgroundColor:
+                            currentPage === item.id
+                              ? `${colors.offWhite}10`
+                              : "transparent",
+                          boxShadow:
+                            currentPage === item.id
+                              ? `0 4px 12px ${colors.paleGray}20`
+                              : "none",
                           transitionDelay: `${index * 50}ms`,
                         }}
                       >
                         <div className="gellix-font flex items-center justify-between">
                           {item.name}
                           {currentPage === item.id && (
-                            <div 
-                              className="w-2 h-2 rounded-sm"
-                              style={{ backgroundColor: '#273848' }}
+                            <div
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: colors.navy }}
                             />
                           )}
                         </div>
-                      </button>
+                      </Link>
                     )}
                   </div>
                 ))}
               </div>
 
               {/* Enhanced Mobile Footer */}
-              <div className="pt-8 mt-8 border-t border-gray-200">
+              <div
+                className="pt-8 mt-8"
+                style={{ borderTop: `1px solid ${colors.silver}30` }}
+              >
                 <div className="flex items-center justify-center space-x-8 mb-6">
-                  <div className="text-center">
-                    <Phone size={24} style={{ color: '#273848' }} className="mx-auto mb-2" />
-                    <p className="text-sm gellix-font" style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Call Us</p>
-                  </div>
-                  <div className="text-center">
-                    <Mail size={24} style={{ color: '#273848' }} className="mx-auto mb-2" />
-                    <p className="text-sm gellix-font" style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Email</p>
-                  </div>
-                  <div className="text-center">
-                    <Globe size={24} style={{ color: '#273848' }} className="mx-auto mb-2" />
-                    <p className="text-sm gellix-font" style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Website</p>
-                  </div>
+                  {[
+                    { icon: Phone, label: "Call Us", color: colors.darkNavy },
+                    { icon: Mail, label: "Email", color: colors.darkGray },
+                    { icon: Globe, label: "Website", color: colors.mediumGray },
+                  ].map((item, index) => (
+                    <div
+                      key={item.label}
+                      className="text-center group cursor-pointer"
+                    >
+                      <div
+                        className="mx-auto mb-2 p-3 rounded-lg transition-all duration-300 group-hover:scale-110"
+                        style={{
+                          backgroundColor: `${item.color}10`,
+                          border: `1px solid ${item.color}20`,
+                        }}
+                      >
+                        <item.icon size={24} style={{ color: item.color }} />
+                      </div>
+                      <p
+                        className="text-sm gellix-font"
+                        style={{ color: colors.gray }}
+                      >
+                        {item.label}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-                
-                <div 
-                  className="gellix-font text-center px-6 py-3 rounded-xl font-medium"
-                  style={{ 
-                    backgroundColor: '#273848', 
-                    color: 'white',
+
+                <div
+                  className="gellix-font text-center px-6 py-3 rounded-lg font-medium"
+                  style={{
+                    background: `linear-gradient(135deg, ${colors.navy} 0%, ${colors.darkGray} 100%)`,
+                    color: "white",
+                    boxShadow: `0 4px 12px ${colors.navy}30`,
                   }}
                 >
                   www.acquirise.com

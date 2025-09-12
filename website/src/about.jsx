@@ -1,140 +1,146 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp, Users, Award, Building, CheckCircle, Star, Phone, Linkedin, Twitter, Facebook } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { HeroShadowOverlay } from "./home";
+import {
+  ArrowRight,
+  ChevronDown,
+  Target,
+  Shield,
+  TrendingUp,
+  Users,
+  Award,
+  Building,
+  CheckCircle,
+  Star,
+  Globe,
+  Zap,
+  Heart,
+  Eye,
+} from "lucide-react";
+import { SiLocal } from "react-icons/si";
+import { SiWebmoney } from "react-icons/si";
+import { SiSmartthings } from "react-icons/si";
+import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import { GiTakeMyMoney } from "react-icons/gi";
+import { HiMiniArrowTrendingUp } from "react-icons/hi2";
+import { MdOutlineReceiptLong } from "react-icons/md";
+import { BsBuildingFillGear } from "react-icons/bs";
+import { GiMoneyStack } from "react-icons/gi";
+import { GiReceiveMoney } from "react-icons/gi";
+import { GiMedicinePills } from "react-icons/gi";
+import { GiFarmTractor } from "react-icons/gi";
+import { FaAmericanSignLanguageInterpreting } from "react-icons/fa";
+import { LiaGopuramSolid } from "react-icons/lia";
+import { FaPeopleCarryBox } from "react-icons/fa6";
+import { StonePileSculpturalFlow} from "./sculpture";
+import ValuesSection from './value';
 
-const PremiumButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
-  const baseClasses = "group relative overflow-hidden px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer text-sm sm:text-base";
-  const variants = {
-    primary: "text-white shadow-lg hover:shadow-xl",
-    outline: "border-2 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm"
-  };
-  
-  const primaryStyle = { 
-    backgroundColor: '#273848',
-    borderColor: '#273848'
-  };
-  
-  const outlineStyle = {
-    borderColor: 'white'
-  };
-  
-  return (
-    <button 
-      className={`${baseClasses} ${variants[variant]} ${className}`} 
-      onClick={onClick} 
-      style={variant === 'primary' ? primaryStyle : outlineStyle}
-      {...props}
-    >
-      <span className="gellix-font relative z-10 flex items-center gap-2">
-        {children}
-      </span>
-      <div 
-        className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-        style={{ backgroundColor: variant === 'primary' ? '#1a2631' : '#273848' }}
-      ></div>
-    </button>
-  );
+const colors = {
+  darkNavy: "#1f2833",
+  navy: "#273848",
+  darkGray: "#2e3742",
+  mediumGray: "#3d4654",
+  gray: "#4d5866",
+  lightGray: "#6d7885",
+  paleGray: "#9ba3ad",
+  silver: "#c5c9ce",
+  offWhite: "#e8e9eb",
 };
-// Custom hook for smooth scrolling animations
+
+// Custom hook for scroll animations
 const useScrollAnimation = () => {
   const [scrollY, setScrollY] = useState(0);
-  
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   return scrollY;
 };
 
-// Abstract Background Components
-const AbstractSpheres = ({ className = "" }) => (
-  <div className={`absolute ${className}`}>
-    <div className="relative w-full h-full">
-      {[...Array(15)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full opacity-20"
-          style={{
-            backgroundColor: '#273848',
-            width: `${Math.random() * 30 + 15}px`,
-            height: `${Math.random() * 30 + 15}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 2}s`,
-            animation: `float ${3 + Math.random() * 2}s ease-in-out infinite`
-          }}
-        />
-      ))}
-    </div>
-  </div>
-);
-
-const AbstractDots = ({ className = "" }) => (
-  <div className={`absolute ${className}`}>
-    <svg viewBox="0 0 400 400" className="w-full h-full opacity-20">
-      {[...Array(80)].map((_, i) => (
-        <circle
-          key={i}
-          cx={Math.random() * 400}
-          cy={Math.random() * 400}
-          r={Math.random() * 2 + 1}
-          fill="#273848"
-          style={{
-            animation: `pulse ${2 + Math.random() * 3}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 2}s`
-          }}
-        />
-      ))}
-    </svg>
-  </div>
-);
-
-// Hero Section Component
+// Hero Section
 const HeroSection = () => {
   const scrollY = useScrollAnimation();
-  
+
   return (
-    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative h-[80vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0">
-        <img
-          src="/home3.jpg"
-          alt="About us background"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        />
-        <div 
-          className="absolute inset-0 opacity-80"
-          style={{ backgroundColor: '#273848' }}
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/home17.jpg')",
+          }}
         ></div>
+
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30"></div>
       </div>
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div 
-          className="space-y-8"
-          style={{ transform: `translateY(${scrollY * 0.02}px)` }}
+
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white/5 animate-pulse"
+            style={{
+              width: `${Math.random() * 40 + 10}px`,
+              height: `${Math.random() * 40 + 10}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${3 + Math.random() * 2}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <div
+          className="space-y-12"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
         >
-          <div className="space-y-6">
-            <h1 
-              className="gravesend-sans text-5xl lg:text-7xl font-bold text-white leading-tight"
-            >
-              About <span className="text-gray-300">Our Vision</span>
+          <div className="space-y-8">
+            <div className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-sm  border border-white/20">
+              <span className="gravesend-sans text-xs font-light text-white/90">
+                ABOUT US
+              </span>
+            </div>
+
+            <h1 className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white ">
+              Investors in
+              <span className="block text-transparent bg-clip-text bg-gray-300">
+                Real-World Solutions
+              </span>
             </h1>
-            <p 
-              className="gellix-font text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
-            >
-              Investors in real-world solutions, catalysing progress across Sub-Saharan Africa
+
+            <p className="gravesend-sans fotnt-light text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Capital that catalyses progress across Sub-Saharan Africa
             </p>
           </div>
-          
-          <button 
-            className="gravesend-sans group flex items-center space-x-3 px-8 py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 mx-auto bg-white"
-            style={{ color: '#273848' }}
-            onClick={() => document.getElementById('story').scrollIntoView({ behavior: 'smooth' })}
+
+          <button
+            className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            onClick={() =>
+              document
+                .getElementById("story")
+                .scrollIntoView({ behavior: "smooth" })
+            }
+            style={{
+              background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
+              color: colors.darkNavy,
+            }}
           >
             <span>Discover Our Story</span>
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </button>
         </div>
       </div>
@@ -142,283 +148,224 @@ const HeroSection = () => {
   );
 };
 
-// Abstract Section Divider
-const AbstractDivider = ({ side = 'left' }) => (
-  <div className={`absolute ${side === 'left' ? 'left-0' : 'right-0'} top-0 w-64 h-full pointer-events-none`}>
-    <AbstractSpheres className="w-full h-full" />
-    <div className="absolute top-1/4 w-32 h-32 opacity-30">
-      <img
-        src="/home2.jpg"
-        alt="Decorative"
-        className="w-full h-full object-cover rounded-full shadow-lg"
-      />
-    </div>
-  </div>
-);
-
 // Main Story Section
 const StorySection = () => {
   const scrollY = useScrollAnimation();
-  
+
   return (
-    <section id="story" className="py-24 bg-white relative overflow-hidden">
-      {/* Abstract Background Elements */}      
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="story" className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           {/* Content */}
-          <div 
-            className="space-y-12 relative z-10"
-            style={{ transform: `translateY(${scrollY * 0.01}px)` }}
+          <div
+            className="space-y-8 md:space-y-12 relative z-10"
+            style={{ transform: `translateY(${scrollY * 0.02}px)` }}
           >
             <div>
-              <h2 
-                className="gellix-font text-sm font-bold uppercase tracking-wider mb-4"
-                style={{ color: '#273848' }}
-              >
-                Our Foundation
+              <div className="gravesend-sans font-light inline-block px-3 py-2 md:px-4 bg-slate-100 rounded-sm mb-4 md:mb-6">
+                <span className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
+                  OUR FOUNDATION
+                </span>
+              </div>
+              <h2 className="gravesend-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6 md:mb-8">
+                Who
+                <span className="block text-slate-500">We Are</span>
               </h2>
-              <h3 
-                className="gravesend-sans text-4xl lg:text-5xl font-bold leading-tight mb-8"
-                style={{ color: '#273848' }}
-              >
-                Capital That <span className="text-gray-500">Catalyses</span>
-              </h3>
             </div>
-            
-            <div className="space-y-8 gellix-font text-lg leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
+
+            <div className="gellix-font space-y-6 md:space-y-8 text-base md:text-lg leading-relaxed text-slate-600">
               <p>
-                At our core, we are investors in real-world solutions. Founded with the belief that capital should do more than seek returns, it should catalyse progress, we invest in private ventures across Sub-Saharan Africa that address significant challenges and unlock scalable opportunities.
+                At our core, we are investors in real-world solutions. Founded
+                with the belief that capital should do more than seek returns,
+                it should catalyse progress, we invest in private ventures
+                across Sub-Saharan Africa that address significant challenges
+                and unlock scalable opportunities.
               </p>
               <p>
-                We adopt a thematic, impact-driven approach, targeting high-potential businesses in key sectors such as infrastructure, agriculture, trade, healthcare and financial inclusion. By aligning capital with innovation and execution, we aim to deliver both exceptional returns and measurable development outcomes.
+                We adopt a thematic, impact-driven approach, targeting
+                high-potential businesses in key sectors such as infrastructure,
+                agriculture, trade, healthcare and financial inclusion. By
+                aligning capital with innovation and execution, we aim to
+                deliver both exceptional returns and measurable development
+                outcomes.
               </p>
             </div>
 
-            <button 
-              className="gravesend-sans group flex items-center space-x-3 px-8 py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105"
-              style={{ backgroundColor: '#273848', color: 'white' }}
+            <button
+              className="gravesend-sans font-light group inline-flex items-center space-x-3 px-6 py-3 md:px-8 md:py-4 text-white rounded-sm hover:bg-slate-800 transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
+              style={{
+                background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
+                color: colors.darkNavy,
+              }}
             >
               <span>View Our Portfolio</span>
-              <Globe size={18} className="group-hover:translate-x-1 transition-transform text-gray-300" />
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform md:w-[18px] md:h-[18px]"
+              />
             </button>
           </div>
-          
-          {/* Visual Elements with Images */}
-          <div className="relative">
-            <div className="relative z-10 space-y-8">
-              {/* Key Sectors Cards with Images */}
-              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <div className="flex items-center space-x-6 mb-6">
-                  <div className="w-20 h-20 rounded-sm overflow-hidden">
-                    <img
-                      src="/home4.jpg"
-                      alt="Infrastructure"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
-                      Infrastructure
-                    </h4>
-                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                      Building foundations for growth
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ml-8 border border-gray-100">
-                <div className="flex items-center space-x-6 mb-6">
-                  <div className="w-20 h-20 rounded-sm overflow-hidden">
-                    <img
-                      src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                      alt="Financial Services"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
-                      Financial Inclusion
-                    </h4>
-                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                      Expanding access to opportunity
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-white p-8 rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <div className="flex items-center space-x-6 mb-6">
-                  <div className="w-20 h-20 rounded-sm overflow-hidden">
-                    <img
-                      src="/home9.jpg"
-                      alt="Healthcare"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
-                      Healthcare & Agriculture
-                    </h4>
-                    <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                      Essential services, sustainable growth
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
-// Key Focus Areas Section
-const FocusAreasSection = () => {
-  const scrollY = useScrollAnimation();
-  
-  return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Abstract Background */}
-      <AbstractDots className="top-10 right-10 w-80 h-80 opacity-10" />
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 
-            className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
-            style={{ color: '#273848' }}
-          >
-            Our <span className="text-gray-500">Approach</span>
-          </h2>
-          <p className="gellix-font text-xl max-w-4xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-            We believe in active partnership, strategic guidance, and sustainable value creation through three core pillars
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Impact-Driven Investment",
-              description: "We seek opportunities that generate both financial returns and positive societal impact, focusing on businesses that solve real problems.",
-              image: "/home8.jpg"
-            },
-            {
-              title: "Local Expertise", 
-              description: "Our deep understanding of Sub-Saharan markets enables us to identify opportunities and navigate challenges with precision.",
-              image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            },
-            {
-              title: "Strategic Partnership",
-              description: "We work closely with management teams to unlock value, providing not just capital but strategic guidance and operational support.", 
-              image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            }
-          ].map((item, index) => (
-            <div 
-              key={index} 
-              className="group bg-white rounded-sm p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer relative"
-              style={{ transform: `translateY(${scrollY * 0.02}px)` }}
-            >
-              {/* Background Image */}
-              <div className="w-full h-48 mb-6 rounded-sm overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              
-              <h4 
-                className="gravesend-sans text-2xl font-bold mb-4"
-                style={{ color: '#273848' }}
-              >
-                {item.title}
-              </h4>
-              <p className="gellix-font leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Values Section with Images
-const ValuesSection = () => {
-  return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      
-      <AbstractSpheres className="top-32 left-1/4 w-60 h-60 opacity-10" />
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 
-            className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
-            style={{ color: '#273848' }}
-          >
-            Our <span className="text-gray-500">Values</span>
-          </h2>
-          <p className="gellix-font text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-            These principles guide every decision we make and every partnership we forge
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            {[
-              {
-                title: "Integrity",
-                description: "We conduct business with the highest ethical standards, building trust through transparency and accountability."
-              },
-              {
-                title: "Excellence",
-                description: "We strive for exceptional outcomes in everything we do, from deal sourcing to portfolio management."
-              },
-              {
-                title: "Innovation",
-                description: "We embrace new ideas and approaches that can drive sustainable growth and positive change."
-              },
-              {
-                title: "Partnership",
-                description: "We believe in collaborative relationships built on mutual respect and shared vision for success."
-              }
-            ].map((value, index) => (
-              <div key={index} className="flex items-start space-x-6">
-                <div 
-                  className="w-12 h-12 rounded-sm flex items-center justify-center text-white flex-shrink-0"
-                  style={{ backgroundColor: '#273848' }}
-                >
-                  <CheckCircle size={20} className="text-gray-300"/>
-                </div>
-                <div>
-                  <h4 className="gravesend-sans text-xl font-bold mb-2" style={{ color: '#273848' }}>
-                    {value.title}
+          {/* Visual Elements */}
+          <div className="relative mt-8 lg:mt-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+              <div className="space-y-4 md:space-y-6">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-blue-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    style={{
+                      backgroundColor: colors.darkGray,
+                      boxShadow: `0 4px 15px ${colors.lightGray}40`,
+                    }}
+                  >
+                    <BsBuildingFillGear className="text-white" size={20} />
+                  </div>
+                  <h4 className="gravesend-sans text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">
+                    Infrastructure
                   </h4>
-                  <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                    {value.description}
+                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                    Building foundations for sustainable growth
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-purple-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    style={{
+                      backgroundColor: colors.darkGray,
+                      boxShadow: `0 4px 15px ${colors.lightGray}40`,
+                    }}
+                  >
+                    <GiMedicinePills className="text-white" size={20} />
+                  </div>
+                  <h4 className="gravesend-sans text-lg md:text-xl font-light text-slate-900 mb-2 md:mb-3">
+                    Healthcare
+                  </h4>
+                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                    Essential services for thriving communities
                   </p>
                 </div>
               </div>
-            ))}
-          </div>
-          
-          <div className="relative">
-            <div className="bg-white p-8 rounded-sm shadow-lg border border-gray-100">
-              <img
-                src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Our team and values"
-                className="w-full h-64 object-cover rounded-sm mb-6"
-              />
-              <h4 className="gravesend-sans text-2xl font-bold mb-4" style={{ color: '#273848' }}>
-                Driven by Purpose
-              </h4>
-              <p className="gellix-font" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>
-                Our commitment extends beyond financial returns to creating lasting positive impact across the communities and markets we serve.
-              </p>
+
+              <div className="space-y-4 md:space-y-6 sm:mt-8 md:mt-12">
+                <div className="bg-gradient-to-br from-black/50 to-slate-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-green-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    style={{
+                      backgroundColor: colors.darkGray,
+                      boxShadow: `0 4px 15px ${colors.lightGray}40`,
+                    }}
+                  >
+                    <GiReceiveMoney className="text-white" size={20} />
+                  </div>
+                  <h4 className="gravesend-sans text-lg md:text-xl font-light text-slate-900 mb-2 md:mb-3">
+                    Financial Inclusion
+                  </h4>
+                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                    Expanding access to opportunity
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-gray-200 to-slate-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                  <div
+                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-orange-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    style={{
+                      backgroundColor: colors.darkGray,
+                      boxShadow: `0 4px 15px ${colors.lightGray}40`,
+                    }}
+                  >
+                    <GiFarmTractor className="text-white" size={20} />
+                  </div>
+                  <h4 className="gravesend-sans text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">
+                    Trade & Agriculture
+                  </h4>
+                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                    Sustainable growth across markets
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Investment Philosophy Section
+const PhilosophySection = () => {
+  const scrollY = useScrollAnimation();
+
+  return (
+    <section className="py-32 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <div className="inline-block px-4 py-2 bg-white rounded-sm mb-6 shadow-lg">
+            <span className="gravesend-sans text-slate-600 text-sm font-light tracking-wide">
+              OUR APPROACH
+            </span>
+          </div>
+          <h2 className="gravesend-sans text-5xl lg:text-6xl font-light text-slate-900 mb-8">
+            Our Investment
+            <span className="block text-slate-500">Philosophy</span>
+          </h2>
+          <p className="gellix-font text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+            Our approach is anchored on three foundational pillars
+          </p>
+        </div>
+
+        {/* Updated grid container for better alignment */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
+          {[
+            {
+              title: "Localization",
+              description:
+                "We deploy capital with deep local insight, working closely with partners who understand the nuances of their markets. This grounded approach allows us to identify underappreciated opportunities and navigate complexity with precision.",
+              icon: SiLocal,
+              color: "blue",
+            },
+            {
+              title: "De-risking",
+              description:
+                "We actively manage risk through robust structuring and diversification, safeguarding our capital while enabling flexibility in dynamic environments. Our strategies are built to absorb shocks and preserve value.",
+              icon: SiWebmoney,
+              color: "purple",
+            },
+            {
+              title: "Value Creation",
+              description:
+                "Beyond capital, we bring strategic partnership, operational insight and governance support to help ventures scale and thrive. We are committed to building long-term value for our stakeholders and the communities they serve.",
+              icon: GiTakeMyMoney,
+              color: "green",
+            },
+          ].map((pillar, index) => {
+            const Icon = pillar.icon;
+            return (
+              <div
+                key={index}
+                className="group relative h-full flex"
+              >
+                <div className="bg-white rounded-sm p-10 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-slate-200 flex flex-col w-full">
+                  <div
+                    className="w-20 h-20 rounded-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                    style={{
+                      backgroundColor: colors.darkGray,
+                      boxShadow: `0 4px 15px ${colors.lightGray}40`,
+                    }}
+                  >
+                    <Icon className="text-white" size={32} />
+                  </div>
+
+                  <h3 className="gravesend-sans text-2xl font-light text-slate-900 mb-6 flex-shrink-0">
+                    {pillar.title}
+                  </h3>
+                  <p className="gellix-font text-slate-600 leading-relaxed flex-grow">
+                    {pillar.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -429,21 +376,47 @@ const ValuesSection = () => {
 const AboutUsPage = () => {
   return (
     <div className="min-h-screen">
+      {/* Custom CSS for animations */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(2deg); }
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(2deg);
+          }
         }
-        
+
         @keyframes pulse {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.6; }
+          0%,
+          100% {
+            opacity: 0.2;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
         }
       `}</style>
-      
+
       <HeroSection />
       <StorySection />
-      <FocusAreasSection />
+      <PhilosophySection />
       <ValuesSection />
     </div>
   );

@@ -6,7 +6,7 @@
           font-family: 'Gravesend Sans';
           src: url('./fonts/fonnts.com-Gravesend_Sans_Light.otf') format('opentype');
           font-weight: 300;
-          font-style: normal;
+          font-style: light;
           font-display: swap;
         }
         
@@ -14,7 +14,7 @@
           font-family: 'Gravesend Sans';
           src: url('./fonts/fonnts.com-Gravesend_Sans_Medium.otf') format('opentype');
           font-weight: 500;
-          font-style: normal;
+          font-style: medium;
           font-display: swap;
         }
         
@@ -22,7 +22,7 @@
           font-family: 'Gravesend Sans';
           src: url('./fonts/fonnts.com-Gravesend_Sans_Bold.otf') format('opentype');
           font-weight: 700;
-          font-style: normal;
+          font-style: bold;
           font-display: swap;
         }
         

@@ -1,38 +1,22 @@
 import React, { useState } from 'react';
 import { ArrowRight, MapPin, TrendingUp, Target, Users, Globe, Building2, Award, CheckCircle } from 'lucide-react';
+import { GiMoneyStack } from "react-icons/gi";
+import { TbPigMoney } from "react-icons/tb";
+import { GrMoney } from "react-icons/gr";
+import { GiFarmTractor } from "react-icons/gi";
+import { TbSunrise } from "react-icons/tb";
 
-const PremiumButton = ({ children, variant = 'primary', className = '', onClick, ...props }) => {
-  const baseClasses = "group relative overflow-hidden px-4 py-3 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 cursor-pointer text-sm sm:text-base";
-  const variants = {
-    primary: "text-white shadow-lg hover:shadow-xl",
-    outline: "border-2 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm"
-  };
-  
-  const primaryStyle = { 
-    backgroundColor: '#273848',
-    borderColor: '#273848'
-  };
-  
-  const outlineStyle = {
-    borderColor: 'white'
-  };
-  
-  return (
-    <button 
-      className={`${baseClasses} ${variants[variant]} ${className}`} 
-      onClick={onClick} 
-      style={variant === 'primary' ? primaryStyle : outlineStyle}
-      {...props}
-    >
-      <span className="gellix-font relative z-10 flex items-center gap-2">
-        {children}
-      </span>
-      <div 
-        className="absolute inset-0 translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-        style={{ backgroundColor: variant === 'primary' ? '#1a2631' : '#273848' }}
-      ></div>
-    </button>
-  );
+
+const colors = {
+  darkNavy: "#1f2833",
+  navy: "#273848",
+  darkGray: "#2e3742",
+  mediumGray: "#3d4654",
+  gray: "#4d5866",
+  lightGray: "#6d7885",
+  paleGray: "#9ba3ad",
+  silver: "#c5c9ce",
+  offWhite: "#e8e9eb",
 };
 
 const InvesteeCompaniesPage = () => {
@@ -42,8 +26,8 @@ const InvesteeCompaniesPage = () => {
       location: "Mauritius, Zimbabwe",
       sector: "Financial Services",
       logo: "/logob.png",
-      height: "h-12",
-      width: "w-32",
+      height: "h-20",
+      width: "w-34",
       gradient: "from-blue-500 to-cyan-400"
     },
     {
@@ -51,17 +35,17 @@ const InvesteeCompaniesPage = () => {
       location: "South Africa",
       sector: "Investment",
       logo: "/logoa.png",
-      height: "h-18",
-      width: "w-32",
+      height: "h-20",
+      width: "w-34",
       gradient: "from-purple-500 to-pink-400"
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section with Background Image */}
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      {/* Hero Section with Background Image  */}
+      <div className="relative h-[80vh] min-h-[300px] flex items-center justify-center overflow-hidden">
+        {/* Background Image  */}
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
@@ -81,11 +65,11 @@ const InvesteeCompaniesPage = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-gradient-to-r from-gray-500/5 to-gray-400/5 rounded-full blur-3xl animate-spin" style={{animationDuration: '60s'}}></div>
         </div>
 
-        {/* Content */}
+        {/* Content  */}
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div className="mb-8">
             <span 
-              className="inline-block backdrop-blur-sm border px-3 py-2 sm:px-4 sm:py-2 rounded-sm text-xs sm:text-sm font-medium mb-4 sm:mb-6 gellix-font"
+              className="gravesend-sans font-light inline-block backdrop-blur-sm border px-3 py-2 sm:px-4 sm:py-2 rounded-sm text-xs sm:text-sm  mb-4 sm:mb-6"
               style={{ 
                 backgroundColor: 'rgba(39, 56, 72, 0.2)',
                 borderColor: 'rgba(39, 56, 72, 0.3)',
@@ -95,7 +79,7 @@ const InvesteeCompaniesPage = () => {
               Portfolio Companies
             </span>
             <h1 
-              className="gravesend-sans text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight px-2"
+              className="gravesend-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 sm:mb-8 leading-tight px-2"
             >
               Current
               <span className="block text-gray-300">
@@ -108,21 +92,29 @@ const InvesteeCompaniesPage = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
-            <PremiumButton>
-              Explore Portfolio
-              <ArrowRight size={18} />
-            </PremiumButton>
-            <PremiumButton variant="outline">
-              Investment Opportunities
-            </PremiumButton>
+             <button
+               className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+                onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+
+               style={{
+                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
+                 color: colors.darkNavy,
+               }}
+             >
+               <span>Investment Opportunities</span>
+               <ArrowRight
+                 size={20}
+                 className="group-hover:translate-x-1 transition-transform"
+               />
+             </button>
           </div>
         </div>
       </div>
 
-      {/* Companies Section */}
-      <div className="relative py-16 sm:py-20 bg-white">
+      {/* Companies Section  */}
+      <div className="relative py-16 sm:py-20 bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Section Header */}
+          {/* Section Header  */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 
               className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
@@ -138,17 +130,17 @@ const InvesteeCompaniesPage = () => {
             </p>
           </div>
 
-          {/* Companies Grid */}
+          {/* Companies Grid  */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {companies.map((company, index) => (
               <div key={index} className="group relative mx-2 sm:mx-0">
-                {/* Main Card */}
+                {/* Main Card  */}
                 <div className="bg-white rounded-sm shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105 h-full">
-                  {/* Header with Logo */}
+                  {/* Header with Logo  */}
                   <div className="relative p-6 sm:p-8 pb-4 sm:pb-6">
                     <div className="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4">
-                      {/* Logo */}
-                      <div className="flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {/* Logo  */}
+                      <div className="flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <img
                           src={company.logo}
                           alt={`${company.name} Logo`}
@@ -169,7 +161,7 @@ const InvesteeCompaniesPage = () => {
                       </span>
                     </div>
 
-                    {/* Company Info */}
+                    {/* Company Info  */}
                     <h3 
                       className="gravesend-sans text-xl sm:text-2xl font-bold mb-3 group-hover:text-gray-600 transition-colors duration-300"
                       style={{ color: '#273848' }}
@@ -185,9 +177,9 @@ const InvesteeCompaniesPage = () => {
                     </div>
                   </div>
 
-                  {/* Status Indicator */}
+                  {/* Status Indicator  */}
                   <div className="px-6 sm:px-8 pb-6 sm:pb-8">
-                    <div className="flex items-center gap-2 text-green-600 bg-green-50 rounded-sm p-3">
+                    <div className="flex items-center gap-2 text-gray-600 bg-gray-50 rounded-sm p-3">
                       <CheckCircle size={16} />
                       <span className="gellix-font text-sm font-medium">
                         Active Investment
@@ -196,25 +188,7 @@ const InvesteeCompaniesPage = () => {
                   </div>
 
                   {/* Hover Overlay */}
-                  <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8"
-                    style={{ backgroundColor: 'rgba(39, 56, 72, 0.9)' }}
-                  >
-                    <button 
-                      className="gellix-font bg-white px-6 py-2 rounded-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                      style={{ color: '#273848' }}
-                    >
-                      View Details
-                    </button>
-                  </div>
                 </div>
-
-                {/* Floating Elements */}
-                <div 
-                  className="absolute -top-2 -right-2 w-6 sm:w-8 h-6 sm:h-8 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"
-                  style={{ backgroundColor: '#273848' }}
-                ></div>
-                <div className="absolute -bottom-2 -left-2 w-4 sm:w-6 h-4 sm:h-6 bg-gray-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
@@ -239,30 +213,30 @@ const InvesteeCompaniesPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {[
                 {
-                  icon: <Building2 className="w-6 h-6 sm:w-8 sm:h-8" />,
+                  icon: <GiMoneyStack className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Financial Services",
                   description: "Banking, fintech, and payment solutions"
                 },
                 {
-                  icon: <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8" />,
+                  icon: <TbPigMoney className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Investment Management",
                   description: "Asset management and capital markets"
                 },
                 {
-                  icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8" />,
+                  icon: <GiFarmTractor className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Agriculture & Trading",
                   description: "Commodity trading and agricultural innovation"
                 },
                 {
-                  icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />,
+                  icon: <TbSunrise className="w-6 h-6 sm:w-8 sm:h-8" />,
                   title: "Strategic Growth",
                   description: "Scalable businesses with regional impact"
                 }
               ].map((focus, index) => (
-                <div key={index} className="text-center p-4 sm:p-6 rounded-sm bg-gradient-to-b from-gray-50 to-white border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div key={index} className="text-center p-4 sm:p-6 rounded-sm bg-gradient-to-b from-gray-100 to-white border border-gray-100 hover:shadow-lg transition-all duration-300">
                   <div 
                     className="w-12 h-12 sm:w-16 sm:h-16 rounded-sm flex items-center justify-center mx-auto mb-4 text-white"
-                    style={{ backgroundColor: '#273848' }}
+                    style={{ backgroundColor: colors.darkNavy }}
                   >
                     {focus.icon}
                   </div>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, MapPin, Globe, Target, Users, TrendingUp, Compass, Map, Navigation } from 'lucide-react';
+import { FaPeoplePulling } from "react-icons/fa6";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { MdNaturePeople } from "react-icons/md";
 
 // Custom hook for animations
 const useScrollAnimation = () => {
@@ -61,8 +64,6 @@ const AbstractCircles = ({ className = "" }) => (
           height: `${Math.random() * 40 + 20}px`,
           left: `${Math.random() * 100}%`,
           top: `${Math.random() * 100}%`,
-          animation: `drift ${4 + Math.random() * 3}s ease-in-out infinite`,
-          animationDelay: `${Math.random() * 2}s`
         }}
       />
     ))}
@@ -78,9 +79,6 @@ const FloatingMaps = ({ className = "" }) => (
         style={{
           left: `${Math.random() * 80 + 10}%`,
           top: `${Math.random() * 80 + 10}%`,
-          animation: `float ${5 + Math.random() * 3}s ease-in-out infinite`,
-          animationDelay: `${Math.random() * 2}s`,
-          transform: `rotate(${Math.random() * 360}deg)`
         }}
       >
         <MapPin size={24 + Math.random() * 16} style={{ color: '#273848' }} />
@@ -157,7 +155,6 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Abstract Elements */}
-      <AbstractCircles className="w-full h-full" />
       <FloatingMaps className="w-full h-full" />
       
       {/* Content */}
@@ -226,7 +223,6 @@ const ContentSection = () => {
     <section id="content" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       {/* Abstract Background Elements */}
       <FloatingMaps className="top-20 right-20 w-64 h-64 hidden lg:block" />
-      <AbstractCircles className="bottom-20 left-20 w-80 h-80 hidden lg:block" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}

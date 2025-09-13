@@ -560,7 +560,7 @@ const HomePage = () => {
         {/* Arrow Navigation with color palette */}
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
+          className="absolute hidden sm:block left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
           style={{
             backgroundColor: `${colors.darkNavy}cc`,
             border: `1px solid ${colors.silver}40`,
@@ -574,7 +574,7 @@ const HomePage = () => {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
+          className="absolute hidden sm:block right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-30 p-2 sm:p-3 rounded-full backdrop-blur-sm transition-all duration-300 shadow-lg"
           style={{
             backgroundColor: `${colors.darkNavy}cc`,
             border: `1px solid ${colors.silver}40`,

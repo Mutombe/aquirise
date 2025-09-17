@@ -159,7 +159,7 @@ const HomePage = () => {
       ),
       subtitle:
         "Actively managing risk through structuring and diversification",
-      image: "/home12.jpg",
+      image: "https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home12.jpg",
       alt: "African financial district skyline",
       overlayGradient: `linear-gradient(135deg, ${colors.navy}ee 0%, ${colors.darkGray}cc 50%, ${colors.mediumGray}99 100%)`,
     },
@@ -171,7 +171,7 @@ const HomePage = () => {
         </>
       ),
       subtitle: "Building long-term value for our stakeholders",
-      image: "/home11.jpg",
+      image: "https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home11.jpg",
       alt: "African manufacturing and industrial activity",
       overlayGradient: `linear-gradient(135deg, ${colors.darkGray}ee 0%, ${colors.mediumGray}cc 50%, ${colors.gray}99 100%)`,
     },

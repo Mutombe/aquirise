@@ -442,7 +442,7 @@ const TeamSection = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/home13.jpg"
+            src="https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home13.jpg"
             alt="Professional business team"
             className="w-full h-full object-cover"
           />

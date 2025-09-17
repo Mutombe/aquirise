@@ -71,7 +71,8 @@ const HeroSection = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/home17.jpg')",
+            backgroundImage:
+              "url('https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home17.jpg')",
           }}
         ></div>
 

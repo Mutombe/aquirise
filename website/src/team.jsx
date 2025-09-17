@@ -150,8 +150,7 @@ const TeamLeadershipSection = () => {
               className="gellix-font text-lg sm:text-xl max-w-3xl mx-auto px-4"
               style={{ color: "rgba(0, 0, 0, 0.5)" }}
             >
-              Meet the experienced professionals driving our investment strategy
-              and delivering exceptional results
+              Meet our principals
             </p>
           </div>
           <br />
@@ -481,8 +480,9 @@ const TeamSection = () => {
               <span className="block text-gray-300">Excellence</span>
             </h1>
             <p className="gellix-font text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed px-4">
-              Acquirise has a highly experienced team with an established track
-              record in investment management and regional expertise
+              As a principal investing firm, Acquirise aligns its own capital
+              with a seasoned team that blends investment discipline and
+              regional expertise.
             </p>
           </div>
 

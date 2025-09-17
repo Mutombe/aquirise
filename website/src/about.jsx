@@ -120,7 +120,8 @@ const HeroSection = () => {
             </h1>
 
             <p className="gravesend-sans fotnt-light text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Capital that catalyses progress across Sub-Saharan Africa
+              Proprietary capital that catalyses progress across Sub-Saharan
+              Africa
             </p>
           </div>
 
@@ -178,19 +179,20 @@ const StorySection = () => {
 
             <div className="gellix-font space-y-6 md:space-y-8 text-base md:text-lg leading-relaxed text-slate-600">
               <p>
-                At our core, we are investors in real-world solutions. Founded
-                with the belief that capital should do more than seek returns,
-                it should catalyse progress, we invest in private ventures
-                across Sub-Saharan Africa that address significant challenges
-                and unlock scalable opportunities.
+                We are a private investment company that deploys our own
+                proprietary, patient capital into realworld solutions. Founded
+                on the belief that capital should catalyse progress and not just
+                chase yield, we back private ventures across Sub-Saharan Africa
+                that solve material problems and can scale.
               </p>
               <p>
-                We adopt a thematic, impact-driven approach, targeting
-                high-potential businesses in key sectors such as infrastructure,
-                agriculture, trade, healthcare and financial inclusion. By
-                aligning capital with innovation and execution, we aim to
-                deliver both exceptional returns and measurable development
-                outcomes.
+                Our approach is thematic and hands-on. We invest balance-sheet
+                capital in high-potential businesses across infrastructure,
+                agriculture, trade, healthcare and financial inclusion,
+                structuring majority or constructive minority positions without
+                fund-life constraints. By aligning proprietary capital with
+                execution, we aim to compound attractive returns while
+                delivering measurable realeconomy benefits.
               </p>
             </div>
 

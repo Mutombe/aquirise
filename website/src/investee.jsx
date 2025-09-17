@@ -48,6 +48,15 @@ const InvesteeCompaniesPage = () => {
       width: "w-36",
       gradient: "from-purple-500 to-pink-400",
     },
+    {
+      name: "Nova Energy",
+      location: "Zambia",
+      sector: "Investment",
+      logo: "/nova.png",
+      height: "h-22",
+      width: "w-36",
+      gradient: "from-purple-500 to-pink-400",
+    },
   ];
 
   return (
@@ -88,7 +97,7 @@ const InvesteeCompaniesPage = () => {
                 color: "rgba(255, 255, 255, 0.9)",
               }}
             >
-              Portfolio Companies
+              Holdings
             </span>
             <h1 className="gravesend-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 sm:mb-8 leading-tight px-2">
               Current
@@ -113,7 +122,7 @@ const InvesteeCompaniesPage = () => {
                 color: colors.darkNavy,
               }}
             >
-              <span>Investment Opportunities</span>
+              <span>Our Investments</span>
               <ArrowRight
                 size={20}
                 className="group-hover:translate-x-1 transition-transform"
@@ -135,7 +144,7 @@ const InvesteeCompaniesPage = () => {
               className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
               style={{ color: "#273848" }}
             >
-              Our <span className="text-gray-500">Portfolio</span>
+              Holdings <span className="text-gray-500"></span>
             </h2>
             <p
               className="gellix-font text-lg sm:text-xl max-w-3xl mx-auto px-4"

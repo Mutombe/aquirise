@@ -201,10 +201,10 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div 
+      <div
         className="relative h-[80vh] min-h-[300px] flex items-center justify-center overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 25%, ${colors.darkGray} 50%, ${colors.mediumGray} 75%, ${colors.gray} 100%)`
+          background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 25%, ${colors.darkGray} 50%, ${colors.mediumGray} 75%, ${colors.gray} 100%)`,
         }}
       >
         {/* Subtle overlay pattern */}
@@ -214,26 +214,26 @@ const ContactPage = () => {
 
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div 
+          <div
             className="absolute top-1/4 left-1/4 w-48 sm:w-72 h-48 sm:h-72 rounded-full blur-3xl animate-pulse"
             style={{ backgroundColor: `${colors.lightGray}30` }}
           ></div>
-          <div 
+          <div
             className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 rounded-full blur-3xl animate-pulse delay-700"
             style={{ backgroundColor: `${colors.paleGray}20` }}
           ></div>
           <div
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] rounded-full blur-3xl animate-spin"
-            style={{ 
+            style={{
               background: `linear-gradient(45deg, ${colors.silver}15, ${colors.offWhite}08)`,
-              animationDuration: "60s" 
+              animationDuration: "60s",
             }}
           ></div>
-          <div 
+          <div
             className="absolute top-1/6 right-1/3 w-32 sm:w-48 h-32 sm:h-48 rounded-full blur-2xl animate-bounce"
-            style={{ 
+            style={{
               backgroundColor: `${colors.paleGray}25`,
-              animationDuration: "3s" 
+              animationDuration: "3s",
             }}
           ></div>
         </div>
@@ -247,30 +247,38 @@ const ContactPage = () => {
                 backgroundColor: `${colors.navy}50`,
                 borderColor: `${colors.lightGray}60`,
                 color: colors.offWhite,
-                boxShadow: `0 8px 32px ${colors.darkNavy}40`
+                boxShadow: `0 8px 32px ${colors.darkNavy}40`,
               }}
             >
               Contact Us
             </span>
-            <h1 
+            <h1
               className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 sm:mb-8 leading-tight px-2"
               style={{ color: colors.offWhite }}
             >
-              Get in <span style={{ color: colors.silver, textShadow: `0 0 20px ${colors.silver}40` }}>Touch</span>
+              Get in{" "}
+              <span
+                style={{
+                  color: colors.silver,
+                  textShadow: `0 0 20px ${colors.silver}40`,
+                }}
+              >
+                Touch
+              </span>
             </h1>
-            <p 
+            <p
               className="gellix-font text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed px-4 font-light"
               style={{ color: colors.paleGray }}
             >
-              Acquirise is ready to provide the right solution according to your needs. 
-              Let's collaborate to build something extraordinary together.
+              We may consider or invite aligned partners to co-invest on a
+              deal-by-deal basis
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
             <button
               className="font-light inline-flex items-center space-x-3 px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group"
-                             onClick={() =>
+              onClick={() =>
                 document
                   .getElementById("contact-section")
                   ?.scrollIntoView({ behavior: "smooth" })
@@ -278,7 +286,7 @@ const ContactPage = () => {
               style={{
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,
-                boxShadow: `0 10px 40px ${colors.darkNavy}30`
+                boxShadow: `0 10px 40px ${colors.darkNavy}30`,
               }}
               onMouseEnter={(e) => {
                 e.target.style.background = `linear-gradient(135deg, ${colors.paleGray} 0%, ${colors.silver} 100%)`;
@@ -289,13 +297,15 @@ const ContactPage = () => {
                 e.target.style.transform = "scale(1)";
               }}
             >
-              <span className="gellix-font font-light font-medium">Contact Us Now</span>
+              <span className="gellix-font font-light font-medium">
+                Contact Us Now
+              </span>
               <ArrowRight
                 size={20}
                 className="group-hover:translate-x-1 transition-transform duration-300"
               />
             </button>
-            
+
             <button
               className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 border-2 backdrop-blur-sm group"
               onClick={() =>
@@ -317,7 +327,10 @@ const ContactPage = () => {
                 e.target.style.borderColor = `${colors.lightGray}60`;
               }}
             >
-              <MapPin size={20} className="group-hover:scale-110 transition-transform duration-300" />
+              <MapPin
+                size={20}
+                className="group-hover:scale-110 transition-transform duration-300"
+              />
               <span className="font-medium">Find Us</span>
             </button>
           </div>
@@ -334,7 +347,7 @@ const ContactPage = () => {
                 left: `${15 + i * 15}%`,
                 top: `${20 + (i % 3) * 20}%`,
                 animationDelay: `${i * 0.5}s`,
-                animationDuration: `${3 + i}s`
+                animationDuration: `${3 + i}s`,
               }}
             />
           ))}
@@ -342,8 +355,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative py-16 sm:py-20 bg-white"
-        id="contact-section">
+      <div className="relative py-16 sm:py-20 bg-white" id="contact-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
@@ -351,14 +363,14 @@ const ContactPage = () => {
               className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
               style={{ color: "#273848" }}
             >
-              Let's <span className="text-gray-500">Connect</span>
+              Partner with <span className="text-gray-500">Principals </span>
             </h2>
             <p
               className="gellix-font text-lg sm:text-xl max-w-3xl mx-auto px-4"
               style={{ color: "rgba(0, 0, 0, 0.5)" }}
             >
-              We're focused on building better solutions with efficient methods
-              to solve the challenges of tomorrow
+              We invest our own balance-sheet capital and hands-on expertise to
+              solve real-economy challenges.
             </p>
           </div>
 
@@ -377,8 +389,7 @@ const ContactPage = () => {
                   className="gellix-font text-base sm:text-lg mb-6 sm:mb-8"
                   style={{ color: "rgba(0, 0, 0, 0.6)" }}
                 >
-                  We're focused on building better solutions with efficient
-                  methods to solve the challenges of tomorrow.
+                  For any enquiries, please contact us using the details below.
                 </p>
               </div>
 

@@ -7,7 +7,7 @@ import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 import { MdOutlineReceiptLong } from "react-icons/md";
-import { SharpSculpturalFlow, CurvedSculpturalFlow } from "./sculpture";
+import { SculpturalFlowShowcase, SharpSculpturalFlow } from "./sculpture";
 
 const useScrollAnimation = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -21,23 +21,6 @@ const useScrollAnimation = () => {
   return scrollY;
 };
 
-// Subtle circular pattern that works well with waves
-const SubtleCircularPattern = () => (
-  <div className="absolute inset-0 flex items-center justify-center opacity-30">
-    {[...Array(6)].map((_, i) => (
-      <div
-        key={i}
-        className="absolute border border-gray-400 rounded-full animate-pulse"
-        style={{
-          width: `${(i + 1) * 200}px`,
-          height: `${(i + 1) * 200}px`,
-          animationDelay: `${i * 0.5}s`,
-          animationDuration: `${4 + i}s`,
-        }}
-      />
-    ))}
-  </div>
-);
 
 const InvestmentFocusSection = () => {
   const scrollY = useScrollAnimation();
@@ -56,22 +39,25 @@ const InvestmentFocusSection = () => {
   };
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
-      {/* Background Patterns - Circular pattern now more visible */}
+    <section className="gellix-font relative py-12 sm:py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
+      {/* Background Patterns */}
       <SharpSculpturalFlow />
       
-      <div className="relative z-10 max-w-7xl mx-auto px-6"
-        id="focus">
-        <div className="text-center mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="focus">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2
-            className="gravesend-sans text-4xl lg:text-5xl font-bold mb-6"
-            style={{ color: colors.navy }}
+            className="gellix-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight"
+            style={{ 
+              color: colors.navy,
+            }}
           >
             Our <span style={{ color: colors.lightGray }}>Focus</span>
           </h2>
           <p
-            className="gellix-font text-xl max-w-4xl mx-auto leading-relaxed"
-            style={{ color: colors.gray }}
+            className="gellix-font text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
+            style={{ 
+              color: colors.gray,
+            }}
           >
             We are a catalyst for sustainable transformation by investing in
             businesses that solve real problems across key sectors. We adopt a
@@ -81,13 +67,13 @@ const InvestmentFocusSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
           {[
             {
               title: "Localization",
               description:
                 "Deploying capital intelligently by leveraging deep, on-the-ground knowledge",
-              icon: <SiLocal size={32} />,
+              icon: <SiLocal size={24} className="sm:w-8 sm:h-8" />,
               bgColor: colors.darkNavy,
               iconColor: colors.offWhite,
               titleColor: colors.navy,
@@ -99,7 +85,7 @@ const InvestmentFocusSection = () => {
               title: "De-risking",
               description:
                 "Actively managing risk through structuring and diversification",
-              icon: <SiWebmoney size={32} />,
+              icon: <SiWebmoney size={24} className="sm:w-8 sm:h-8" />,
               bgColor: colors.darkGray,
               iconColor: colors.silver,
               titleColor: colors.darkNavy,
@@ -110,7 +96,7 @@ const InvestmentFocusSection = () => {
             {
               title: "Value Creation",
               description: "Building long term value for our stakeholders",
-              icon: <GiTakeMyMoney size={32} />,
+              icon: <GiTakeMyMoney size={24} className="sm:w-8 sm:h-8" />,
               bgColor: colors.mediumGray,
               iconColor: colors.offWhite,
               titleColor: colors.navy,
@@ -121,11 +107,11 @@ const InvestmentFocusSection = () => {
           ].map((item, index) => (
             <div
               key={index}
-              className="group bg-white/95 backdrop-blur-sm rounded-sm p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-105 cursor-pointer relative overflow-hidden"
+              className="group bg-white/95 backdrop-blur-sm rounded-sm p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] sm:hover:scale-105 cursor-pointer relative overflow-hidden touch-manipulation"
               style={{
-                borderLeft: `4px solid ${item.borderColor}`,
-                boxShadow: `0 10px 30px ${item.shadowColor}20, 0 1px 8px ${item.shadowColor}10`,
-                transform: `translateY(${scrollY * 0.02}px)`,
+                borderLeft: `3px sm:border-l-4 solid ${item.borderColor}`,
+                boxShadow: `0 4px 15px ${item.shadowColor}20, 0 1px 4px ${item.shadowColor}10`,
+                transform: window.innerWidth > 768 ? `translateY(${scrollY * 0.02}px)` : 'none',
               }}
               onClick={() => (window.location.href = "#about")}
             >
@@ -138,16 +124,16 @@ const InvestmentFocusSection = () => {
               />
 
               {/* Arrow Icon */}
-              <div className="absolute top-6 right-6 opacity-100 group-hover:opacity-100 transition-opacity duration-300"
-              onClick={() => (window.location.href = "/about")}>
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
                 <HiMiniArrowTrendingUp
-                  size={20}
+                  size={16}
+                  className="sm:w-5 sm:h-5"
                   style={{ color: item.hoverBg }}
                 />
               </div>
 
               <div
-                className="relative w-16 h-16 rounded-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg"
+                className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-sm flex items-center justify-center mb-4 sm:mb-5 lg:mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg"
                 style={{
                   backgroundColor: item.bgColor,
                   boxShadow: `0 4px 15px ${item.bgColor}40`,
@@ -156,21 +142,25 @@ const InvestmentFocusSection = () => {
                 <div style={{ color: item.iconColor }}>{item.icon}</div>
               </div>
               <h4
-                className="gravesend-sans text-2xl font-light mb-4 relative"
-                style={{ color: item.titleColor }}
+                className="gellix-font text-lg sm:text-xl lg:text-2xl font-light mb-2 sm:mb-3 lg:mb-4 relative"
+                style={{ 
+                  color: item.titleColor,
+                }}
               >
                 {item.title}
               </h4>
               <p
-                className="gellix-font leading-relaxed relative"
-                style={{ color: colors.gray }}
+                className="gellix-font text-sm sm:text-base leading-relaxed relative"
+                style={{ 
+                  color: colors.gray,
+                }}
               >
                 {item.description}
               </p>
 
               {/* Bottom gradient accent */}
               <div
-                className="absolute bottom-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute bottom-0 left-0 right-0 h-0.5 sm:h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   background: `linear-gradient(90deg, ${item.bgColor} 0%, ${item.hoverBg} 50%, ${item.shadowColor} 100%)`,
                 }}
@@ -181,13 +171,13 @@ const InvestmentFocusSection = () => {
 
         {/* Sectors We Target with Enhanced Design */}
         <div
-          className="relative bg-white/90 backdrop-blur-sm rounded-sm p-12 shadow-2xl overflow-hidden"
+          className="relative bg-white/90 backdrop-blur-sm rounded-sm p-6 sm:p-8 lg:p-12 shadow-2xl overflow-hidden"
           style={{
             background: `linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(232,233,235,0.3) 100%)`,
-            boxShadow: `0 20px 60px ${colors.paleGray}30, 0 10px 20px ${colors.silver}20`,
+            boxShadow: `0 10px 30px ${colors.paleGray}30, 0 5px 10px ${colors.silver}20`,
           }}
         >
-          {/* Additional wave overlay for this section */}
+          {/* Wave overlay for section */}
           <div className="absolute inset-0 opacity-20">
             <svg
               width="100%"
@@ -218,9 +208,9 @@ const InvestmentFocusSection = () => {
           </div>
 
           <div className="relative z-10">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6 sm:mb-8 lg:mb-12">
               <h4
-                className="gravesend-sans text-3xl font-bold mb-4"
+                className="gellix-font text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4"
                 style={{
                   color: colors.navy,
                   textShadow: `0 2px 8px ${colors.silver}30`,
@@ -242,14 +232,14 @@ const InvestmentFocusSection = () => {
 
               {/* Decorative line */}
               <div
-                className="w-20 h-0.5 mx-auto mb-4"
+                className="w-12 sm:w-16 lg:w-20 h-0.5 mx-auto mb-2 sm:mb-3 lg:mb-4"
                 style={{
                   background: `linear-gradient(90deg, transparent 0%, ${colors.mediumGray} 50%, transparent 100%)`,
                 }}
               />
 
               <p
-                className="gellix-font text-xl"
+                className="gellix-font text-base sm:text-lg lg:text-xl px-4 sm:px-0"
                 style={{
                   color: colors.gray,
                   textShadow: `0 1px 2px ${colors.offWhite}60`,
@@ -266,7 +256,7 @@ const InvestmentFocusSection = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 xl:gap-8">
               {[
                 {
                   name: "Financial Services",
@@ -317,7 +307,7 @@ const InvestmentFocusSection = () => {
               ].map((sector, index) => (
                 <div
                   key={index}
-                  className="relative text-center rounded-sm shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-32 flex items-center justify-center group"
+                  className="relative text-center rounded-sm shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-24 sm:h-28 lg:h-32 flex items-center justify-center group touch-manipulation"
                 >
                   {/* Background Image */}
                   <div
@@ -334,7 +324,9 @@ const InvestmentFocusSection = () => {
                   />
 
                   {/* Text */}
-                  <div className="gravesend-sans relative z-10 font-medium text-white group-hover:scale-105 transition-transform duration-300 drop-shadow-lg">
+                  <div 
+                    className="gellix-font relative z-10 font-medium text-white group-hover:scale-105 transition-transform duration-300 drop-shadow-lg text-sm sm:text-base px-2"
+                  >
                     {sector.name}
                   </div>
                 </div>

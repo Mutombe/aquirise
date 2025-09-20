@@ -1,3 +1,4 @@
+// App.js - Updated with Cookie Consent
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight, Mail, MapPin, Globe, ChevronDown, Target, Shield, TrendingUp } from 'lucide-react';
@@ -13,6 +14,8 @@ import Footer from './footer';
 import InvesteeCompaniesPage from './investee';
 import DeRiskingPage from './derisking';
 import ValueCreationPage from './valuecreation';
+import CookieConsent from './cookieConsent';
+import PrivacyPolicy from './privacypolicy';
 import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
@@ -49,8 +52,6 @@ const LoadingScreen = () => {
         background: `linear-gradient(135deg, ${colors.darkNavy} 0%, ${colors.navy} 50%, ${colors.darkGray} 100%)`
       }}
     >
-      {/* Background Pattern */}
-
       <div className="text-center relative z-10">
         <motion.div
           animate={{
@@ -63,7 +64,6 @@ const LoadingScreen = () => {
           }}
           className="relative inline-block"
         >
-          {/* Logo Container */}
           <div 
             className="w-32 h-32 mx-auto rounded-sm flex items-center justify-center shadow-2xl backdrop-blur-sm border border-opacity-20 p-4 relative"
             style={{ 
@@ -71,9 +71,8 @@ const LoadingScreen = () => {
               borderColor: colors.silver,
             }}
           >
-            {/* Your actual logo image */}
             <img
-              src="/logo1.png" // Replace with your actual logo path
+              src="/logo1.png"
               alt="Company Logo"
               className="w-full h-full object-contain"
               style={{ 
@@ -82,13 +81,11 @@ const LoadingScreen = () => {
                 maxHeight: '100%'
               }}
               onError={(e) => {
-                // Fallback if logo doesn't load
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'flex';
               }}
             />
             
-            {/* Fallback logo if image fails to load */}
             <div 
               className="w-full h-full items-center justify-center flex-col space-y-1"
               style={{ display: 'none' }}
@@ -113,7 +110,6 @@ const LoadingScreen = () => {
             </div>
           </div>
 
-          {/* Glow effect behind logo */}
           <motion.div
             animate={{
               opacity: [0.3, 0.6, 0.3],
@@ -186,7 +182,7 @@ const PageWrapper = ({ children }) => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1200); // Adjust timing as needed
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, [location]);
@@ -238,7 +234,6 @@ const AppContent = () => {
           font-display: swap;
         }
         
-        /* Century Gothic Font Face */
         @font-face {
           font-family: 'Century Gothic Custom';
           src: url('./fonts/weezerfont.ttf') format('truetype');
@@ -261,7 +256,7 @@ const AppContent = () => {
           font-style: normal;
           font-display: swap;
         }
-        /* Font utility classes */
+        
         .gravesend-sans {
           font-family: 'Gravesend Sans', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -282,7 +277,6 @@ const AppContent = () => {
           overflow-x: hidden;
         }
         
-        /* Smooth scrolling */
         html {
           scroll-behavior: smooth;
         }
@@ -301,12 +295,16 @@ const AppContent = () => {
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/localisation" element={<LocalizationPage />} />
           <Route path="/de-risking" element={<DeRiskingPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookies" element={<PrivacyPolicy />} />
           <Route path="/value-creation" element={<ValueCreationPage />} />
-          {/* Fallback route */}
           <Route path="*" element={<HomePage />} />
         </Routes>
         <Footer />
       </PageWrapper>
+      
+      {/* Add Cookie Consent Banner here - it will show on all pages */}
+      <CookieConsent />
     </div>
   );
 };
@@ -315,10 +313,9 @@ const App = () => {
   const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    // Initial app loading
     const timer = setTimeout(() => {
       setInitialLoad(false);
-    }, 2000); // Initial load time
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

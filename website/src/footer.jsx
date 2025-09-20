@@ -181,7 +181,7 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 text-slate-400 text-sm sm:text-base">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="gellix-font hover:text-white transition-colors duration-300 hover:underline"
               >
                 Privacy Policy
@@ -193,7 +193,7 @@ const Footer = () => {
                 Terms of Service
               </a>
               <a
-                href="#"
+                href="/privacy-policy"
                 className="gellix-font hover:text-white transition-colors duration-300 hover:underline"
               >
                 Cookie Policy

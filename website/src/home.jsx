@@ -16,6 +16,7 @@ import {
   MapPin,
 } from "lucide-react";
 import InvestmentFocusSection from "./focus";
+import { trackEvent, trackPageView, isCookieAllowed } from "./cookieManager";
 
 // Flowing Shadow Overlay for Hero
 export const HeroShadowOverlay = () => {
@@ -121,6 +122,21 @@ export const HeroShadowOverlay = () => {
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState({});
+
+    useEffect(() => {
+    trackPageView('/', 'Home Page');
+  }, []);
+
+    const handleExploreClick = () => {
+    // Track the event only if analytics cookies are allowed
+    trackEvent('explore_opportunities_click', {
+      button_location: 'hero_section',
+      page: 'home'
+    });
+    
+    // Your existing scroll logic
+    document.getElementById("focus")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   // Color palette
   const colors = {
@@ -265,11 +281,7 @@ const HomePage = () => {
                   background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                   color: colors.darkNavy,
                 }}
-                onClick={() =>
-                  document
-                    .getElementById("focus")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={handleExploreClick}
               >
                 <span className="gellix-font font-medium">
                   Explore Opportunities

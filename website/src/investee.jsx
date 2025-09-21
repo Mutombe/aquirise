@@ -42,7 +42,7 @@ const InvesteeCompaniesPage = () => {
     {
       name: "Rudiarius Capital Management",
       location: "South Africa",
-      sector: "Investment",
+      sector: "Financial Services",
       logo: "/logoa.png",
       height: "h-22",
       width: "w-36",
@@ -51,7 +51,7 @@ const InvesteeCompaniesPage = () => {
     {
       name: "Nova Energy",
       location: "Zambia",
-      sector: "Investment",
+      sector: "Energy",
       logo: "/nova.png",
       height: "h-22",
       width: "w-36",
@@ -163,7 +163,7 @@ const InvesteeCompaniesPage = () => {
                 <div className="bg-white rounded-sm shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:scale-105 h-full">
                   {/* Header with Logo  */}
                   <div className="relative p-6 sm:p-8 pb-4 sm:pb-6">
-                    <div className="flex flex-col sm:flex-row items-start justify-between mb-6 gap-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-between mb-3 gap-4">
                       {/* Logo  */}
                       <div className="flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <img

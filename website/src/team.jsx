@@ -260,7 +260,7 @@ const TeamCards = () => {
       {[
         {
           name: "John Doe",
-          position: "Non-Executive Director",
+          position: "Director",
           experience: "15+ years",
           image: "/John.jpg",
           linkedin: "https://linkedin.com/in/sarah-johnson",
@@ -271,7 +271,7 @@ const TeamCards = () => {
         },
         {
           name: "John Doe",
-          position: "Non-Executive Director",
+          position: "Director",
           experience: "12+ years",
           image: "/John.jpg",
           linkedin: "https://linkedin.com/in/james-wilson",
@@ -282,7 +282,7 @@ const TeamCards = () => {
         },
         {
           name: "Jane Doe",
-          position: "Non-Executive Director",
+          position: "Director",
           experience: "10+ years",
           image: "/John.jpg",
           linkedin: "https://linkedin.com/in/fatima-al-rashid",

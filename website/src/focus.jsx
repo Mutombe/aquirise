@@ -113,7 +113,7 @@ const InvestmentFocusSection = () => {
                 boxShadow: `0 4px 15px ${item.shadowColor}20, 0 1px 4px ${item.shadowColor}10`,
                 transform: window.innerWidth > 768 ? `translateY(${scrollY * 0.02}px)` : 'none',
               }}
-              onClick={() => (window.location.href = "#about")}
+              onClick={() => (window.location.href = "/about")}
             >
               {/* Multi-layer gradient overlay */}
               <div

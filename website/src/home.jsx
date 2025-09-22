@@ -123,11 +123,11 @@ const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState({});
 
-    useEffect(() => {
+  useEffect(() => {
     trackPageView('/', 'Home Page');
   }, []);
 
-    const handleExploreClick = () => {
+  const handleExploreClick = () => {
     // Track the event only if analytics cookies are allowed
     trackEvent('explore_opportunities_click', {
       button_location: 'hero_section',
@@ -266,17 +266,17 @@ const HomePage = () => {
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-4xl space-y-3 sm:space-y-4 lg:space-y-6">
-              <h1 className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight text-white transform transition-all duration-500 opacity-100">
+              <h1 className="gravesend-sans font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight text-white transform transition-all duration-500 opacity-100">
                 {slides[currentSlide].title}
               </h1>
               <p
-                className="gellix-font font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed max-w-2xl transform transition-all duration-500 opacity-100"
+                className="gellix-font font-light text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed max-w-2xl transform transition-all duration-500 opacity-100"
                 style={{ color: colors.silver }}
               >
                 {slides[currentSlide].subtitle}
               </p>
               <button
-                className="group flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold text-sm sm:text-base transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="group flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 rounded-sm font-semibold text-xs sm:text-sm transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 style={{
                   background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                   color: colors.darkNavy,

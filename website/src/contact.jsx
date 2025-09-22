@@ -21,10 +21,6 @@ import {
   Facebook,
   Send,
 } from "lucide-react";
-import { BsBrowserChrome } from "react-icons/bs";
-import { MdMarkEmailRead } from "react-icons/md";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { LuPhoneCall } from "react-icons/lu";
 import {
   SharpSculpturalFlow,
   CurvedSculpturalFlow,
@@ -56,7 +52,7 @@ const ContactCard = ({ icon: Icon, title, content, link }) => (
       </div>
       <div className="flex-1">
         <h3
-          className="gravesend-sans text-xl font-bold mb-2"
+          className="gravesend-sans text-lg font-bold mb-2"
           style={{ color: "#273848" }}
         >
           {title}
@@ -242,7 +238,7 @@ const ContactPage = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div className="mb-8">
             <span
-              className="gravesend-sans font-light inline-block backdrop-blur-sm border px-4 py-2 sm:px-6 sm:py-3 rounded-sm text-sm sm:text-base font-light mb-6 sm:mb-8 transition-all duration-300 hover:scale-105"
+              className="gravesend-sans font-light inline-block backdrop-blur-sm border px-4 py-2 sm:px-6 sm:py-3 rounded-sm text-xs sm:text-sm font-light mb-6 sm:mb-8 transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: `${colors.navy}50`,
                 borderColor: `${colors.lightGray}60`,
@@ -253,7 +249,7 @@ const ContactPage = () => {
               Contact Us
             </span>
             <h1
-              className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light mb-6 sm:mb-8 leading-tight px-2"
+              className="gravesend-sans font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light mb-6 sm:mb-8 leading-tight px-2"
               style={{ color: colors.offWhite }}
             >
               Get in{" "}
@@ -267,7 +263,7 @@ const ContactPage = () => {
               </span>
             </h1>
             <p
-              className="gellix-font text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed px-4 font-light"
+              className="gellix-font text-base sm:text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed px-4 font-light"
               style={{ color: colors.paleGray }}
             >
               We may consider or invite aligned partners to co-invest on a
@@ -297,7 +293,7 @@ const ContactPage = () => {
                 e.target.style.transform = "scale(1)";
               }}
             >
-              <span className="gellix-font font-light font-medium">
+              <span className="gellix-font font-light font-medium text-sm">
                 Contact Us Now
               </span>
               <ArrowRight
@@ -331,7 +327,7 @@ const ContactPage = () => {
                 size={20}
                 className="group-hover:scale-110 transition-transform duration-300"
               />
-              <span className="font-medium">Find Us</span>
+              <span className="font-medium text-sm">Find Us</span>
             </button>
           </div>
         </div>
@@ -360,13 +356,13 @@ const ContactPage = () => {
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
             <h2
-              className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
+              className="gravesend-sans text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6"
               style={{ color: "#273848" }}
             >
               Partner with <span className="text-gray-500">Principals </span>
             </h2>
             <p
-              className="gellix-font text-lg sm:text-xl max-w-3xl mx-auto px-4"
+              className="gellix-font text-base sm:text-lg max-w-3xl mx-auto px-4"
               style={{ color: "rgba(0, 0, 0, 0.5)" }}
             >
               We invest our own balance-sheet capital and hands-on expertise to
@@ -380,13 +376,13 @@ const ContactPage = () => {
             <div className="space-y-8">
               <div>
                 <h3
-                  className="gravesend-sans text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
+                  className="gravesend-sans text-xl sm:text-2xl font-bold mb-6 sm:mb-8"
                   style={{ color: "#273848" }}
                 >
                   Get in touch
                 </h3>
                 <p
-                  className="gellix-font text-base sm:text-lg mb-6 sm:mb-8"
+                  className="gellix-font text-sm sm:text-base mb-6 sm:mb-8"
                   style={{ color: "rgba(0, 0, 0, 0.6)" }}
                 >
                   For any enquiries, please contact us using the details below.
@@ -396,10 +392,10 @@ const ContactPage = () => {
               {/* Contact Cards */}
               <div className="space-y-6">
                 <ContactCard
-                  icon={FaMapLocationDot}
+                  icon={MapPin}
                   title="Head Office"
                   content={
-                    <div>
+                    <div className="text-sm">
                       <p>2nd Floor Exchange House</p>
                       <p>54-62 Athol Street</p>
                       <p>Douglas, Isle of Man</p>
@@ -409,17 +405,17 @@ const ContactPage = () => {
                 />
 
                 <ContactCard
-                  icon={MdMarkEmailRead}
+                  icon={Mail}
                   title="Email Us"
                   content="info@acquirise.com"
                   link="mailto:info@acquirise.com"
                 />
 
                 <ContactCard
-                  icon={LuPhoneCall}
+                  icon={Phone}
                   title="Call Us"
                   content={
-                    <div>
+                    <div className="text-sm">
                       <p>Phone: +44 1624 123456</p>
                       <p>Fax: +44 1624 123457</p>
                     </div>
@@ -433,7 +429,7 @@ const ContactPage = () => {
             {/* Contact Form */}
             <div className="bg-white rounded-sm p-6 sm:p-8 shadow-lg border border-gray-100">
               <h3
-                className="gravesend-sans text-2xl sm:text-3xl font-bold mb-6 sm:mb-8"
+                className="gravesend-sans text-xl sm:text-2xl font-bold mb-6 sm:mb-8"
                 style={{ color: "#273848" }}
               >
                 Send us a message
@@ -443,56 +439,36 @@ const ContactPage = () => {
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label
-                      className="gellix-font block text-sm font-medium mb-2"
+                      className="gellix-font block text-xs font-medium mb-2"
                       style={{ color: "#273848" }}
                     >
                       Name <span className="text-red-400">*</span>
                     </label>
                     <input
                       type="text"
-                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300"
-                      style={{
-                        focusBorderColor: "#273848",
-                        focusRingColor: "#273848",
-                      }}
+                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 text-sm"
                       placeholder="Name"
                       value={formData.name}
                       onChange={(e) =>
                         handleInputChange("name", e.target.value)
                       }
-                      onFocus={(e) => {
-                        e.target.style.borderColor = "#273848";
-                        e.target.style.boxShadow = "0 0 0 1px #273848";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.borderColor = "#d1d5db";
-                        e.target.style.boxShadow = "none";
-                      }}
                     />
                   </div>
                   <div>
                     <label
-                      className="gellix-font block text-sm font-medium mb-2"
+                      className="gellix-font block text-xs font-medium mb-2"
                       style={{ color: "#273848" }}
                     >
                       Company
                     </label>
                     <input
                       type="text"
-                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300"
+                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 text-sm"
                       placeholder="Company"
                       value={formData.company}
                       onChange={(e) =>
                         handleInputChange("company", e.target.value)
                       }
-                      onFocus={(e) => {
-                        e.target.style.borderColor = "#273848";
-                        e.target.style.boxShadow = "0 0 0 1px #273848";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.borderColor = "#d1d5db";
-                        e.target.style.boxShadow = "none";
-                      }}
                     />
                   </div>
                 </div>
@@ -500,112 +476,80 @@ const ContactPage = () => {
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label
-                      className="gellix-font block text-sm font-medium mb-2"
+                      className="gellix-font block text-xs font-medium mb-2"
                       style={{ color: "#273848" }}
                     >
                       Phone
                     </label>
                     <input
                       type="tel"
-                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300"
+                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 text-sm"
                       placeholder="Phone"
                       value={formData.phone}
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      onFocus={(e) => {
-                        e.target.style.borderColor = "#273848";
-                        e.target.style.boxShadow = "0 0 0 1px #273848";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.borderColor = "#d1d5db";
-                        e.target.style.boxShadow = "none";
-                      }}
                     />
                   </div>
                   <div>
                     <label
-                      className="gellix-font block text-sm font-medium mb-2"
+                      className="gellix-font block text-xs font-medium mb-2"
                       style={{ color: "#273848" }}
                     >
                       Email <span className="text-red-400">*</span>
                     </label>
                     <input
                       type="email"
-                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300"
+                      className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 text-sm"
                       placeholder="Email"
                       value={formData.email}
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      onFocus={(e) => {
-                        e.target.style.borderColor = "#273848";
-                        e.target.style.boxShadow = "0 0 0 1px #273848";
-                      }}
-                      onBlur={(e) => {
-                        e.target.style.borderColor = "#d1d5db";
-                        e.target.style.boxShadow = "none";
-                      }}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label
-                    className="gellix-font block text-sm font-medium mb-2"
+                    className="gellix-font block text-xs font-medium mb-2"
                     style={{ color: "#273848" }}
                   >
                     Subject
                   </label>
                   <input
                     type="text"
-                    className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300"
+                    className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 text-sm"
                     placeholder="Subject"
                     value={formData.subject}
                     onChange={(e) =>
                       handleInputChange("subject", e.target.value)
                     }
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "#273848";
-                      e.target.style.boxShadow = "0 0 0 1px #273848";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "#d1d5db";
-                      e.target.style.boxShadow = "none";
-                    }}
                   />
                 </div>
 
                 <div>
                   <label
-                    className="gellix-font block text-sm font-medium mb-2"
+                    className="gellix-font block text-xs font-medium mb-2"
                     style={{ color: "#273848" }}
                   >
                     Message <span className="text-red-400">*</span>
                   </label>
                   <textarea
-                    className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 h-32 resize-none"
+                    className="gellix-font w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-slate-900 placeholder-gray-400 focus:outline-none focus:ring-1 transition-all duration-300 h-32 resize-none text-sm"
                     placeholder="Message"
                     rows={4}
                     value={formData.message}
                     onChange={(e) =>
                       handleInputChange("message", e.target.value)
                     }
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "#273848";
-                      e.target.style.boxShadow = "0 0 0 1px #273848";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "#d1d5db";
-                      e.target.style.boxShadow = "none";
-                    }}
                   />
                 </div>
 
                 <div className="flex justify-end">
                   <button
                     type="submit"
-                    className="gellix-font inline-flex items-center px-6 py-3 rounded-sm text-white hover:bg-amber-700 transition-all duration-300"
+                    className="gellix-font inline-flex items-center px-6 py-3 rounded-sm text-white hover:bg-amber-700 transition-all duration-300 text-sm"
                     style={{
                       background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                       color: colors.darkNavy,
@@ -621,7 +565,7 @@ const ContactPage = () => {
           {/* Map Section */}
           <div className="mb-12 sm:mb-16">
             <h3
-              className="gravesend-sans text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center"
+              className="gravesend-sans text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center"
               style={{ color: "#273848" }}
             >
               Find <span className="text-gray-500">Us</span>

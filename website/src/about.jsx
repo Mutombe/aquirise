@@ -101,33 +101,33 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div
-          className="space-y-12"
+          className="space-y-6 sm:space-y-8 lg:space-y-12"
           style={{ transform: `translateY(${scrollY * 0.1}px)` }}
         >
-          <div className="space-y-8">
-            <div className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-sm  border border-white/20">
-              <span className="gravesend-sans text-xs font-light text-white/90">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+            <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-white/10 backdrop-blur-sm rounded-sm border border-white/20">
+              <span className="gravesend-sans text-xs sm:text-sm font-light text-white/90">
                 ABOUT US
               </span>
             </div>
 
-            <h1 className="gravesend-sans font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white ">
+            <h1 className="gravesend-sans font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
               Investors in
               <span className="block text-transparent bg-clip-text bg-gray-300">
                 Real-World Solutions
               </span>
             </h1>
 
-            <p className="gravesend-sans fotnt-light text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <p className="gravesend-sans font-light text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Proprietary capital that catalyses progress across Sub-Saharan
               Africa
             </p>
           </div>
 
           <button
-            className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            className="gellix-font font-light inline-flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-white rounded-sm transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-xs sm:text-sm"
             onClick={() =>
               document
                 .getElementById("story")
@@ -140,7 +140,7 @@ const HeroSection = () => {
           >
             <span>Discover Our Story</span>
             <ArrowRight
-              size={20}
+              size={18}
               className="group-hover:translate-x-1 transition-transform"
             />
           </button>
@@ -157,28 +157,28 @@ const StorySection = () => {
   return (
     <section
       id="story"
-      className="py-16 md:py-24 lg:py-32 bg-white relative overflow-hidden"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div
-            className="space-y-8 md:space-y-12 relative z-10"
+            className="space-y-6 sm:space-y-8 lg:space-y-12 relative z-10"
             style={{ transform: `translateY(${scrollY * 0.02}px)` }}
           >
             <div>
-              <div className="gravesend-sans font-light inline-block px-3 py-2 md:px-4 bg-slate-100 rounded-sm mb-4 md:mb-6">
+              <div className="gravesend-sans font-light inline-block px-3 py-2 sm:px-4 bg-slate-100 rounded-sm mb-3 sm:mb-4 lg:mb-6">
                 <span className="text-slate-600 text-xs sm:text-sm font-medium tracking-wide">
                   OUR FOUNDATION
                 </span>
               </div>
-              <h2 className="gravesend-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6 md:mb-8">
+              <h2 className="gravesend-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-4 sm:mb-6">
                 Who
                 <span className="block text-slate-500">We Are</span>
               </h2>
             </div>
 
-            <div className="gellix-font space-y-6 md:space-y-8 text-base md:text-lg leading-relaxed text-slate-600">
+            <div className="gellix-font space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed text-slate-600">
               <p>
                 We are a private investment company that deploys our own
                 proprietary, patient capital into realworld solutions. Founded
@@ -198,7 +198,7 @@ const StorySection = () => {
             </div>
 
             <button
-              className="gravesend-sans font-light group inline-flex items-center space-x-3 px-6 py-3 md:px-8 md:py-4 text-white rounded-sm hover:bg-slate-800 transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
+              className="gravesend-sans font-light group inline-flex items-center space-x-2 sm:space-x-3 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 text-white rounded-sm hover:bg-slate-800 transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm"
               style={{
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,
@@ -208,18 +208,18 @@ const StorySection = () => {
               <span>View Our Portfolio</span>
               <ArrowRight
                 size={16}
-                className="group-hover:translate-x-1 transition-transform md:w-[18px] md:h-[18px]"
+                className="group-hover:translate-x-1 transition-transform sm:w-[18px] sm:h-[18px]"
               />
             </button>
           </div>
 
           {/* Visual Elements */}
           <div className="relative mt-8 lg:mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-              <div className="space-y-4 md:space-y-6">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
                   <div
-                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-blue-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-600 rounded-sm flex items-center justify-center mb-4 sm:mb-6"
                     style={{
                       backgroundColor: colors.darkGray,
                       boxShadow: `0 4px 15px ${colors.lightGray}40`,
@@ -227,17 +227,17 @@ const StorySection = () => {
                   >
                     <BsBuildingFillGear className="text-white" size={20} />
                   </div>
-                  <h4 className="gravesend-sans text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">
+                  <h4 className="gravesend-sans text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                     Infrastructure
                   </h4>
-                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                  <p className="gellix-font text-sm sm:text-base leading-relaxed text-slate-600">
                     Building foundations for sustainable growth
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 sm:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
                   <div
-                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-purple-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-purple-600 rounded-sm flex items-center justify-center mb-4 sm:mb-6"
                     style={{
                       backgroundColor: colors.darkGray,
                       boxShadow: `0 4px 15px ${colors.lightGray}40`,
@@ -245,19 +245,19 @@ const StorySection = () => {
                   >
                     <GiMedicinePills className="text-white" size={20} />
                   </div>
-                  <h4 className="gravesend-sans text-lg md:text-xl font-light text-slate-900 mb-2 md:mb-3">
+                  <h4 className="gravesend-sans text-lg sm:text-xl lg:text-2xl font-light text-slate-900 mb-2 sm:mb-3">
                     Healthcare
                   </h4>
-                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                  <p className="gellix-font text-sm sm:text-base leading-relaxed text-slate-600">
                     Essential services for thriving communities
                   </p>
                 </div>
               </div>
 
-              <div className="space-y-4 md:space-y-6 sm:mt-8 md:mt-12">
-                <div className="bg-gradient-to-br from-black/50 to-slate-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+              <div className="space-y-4 sm:space-y-6 sm:mt-8 lg:mt-12">
+                <div className="bg-gradient-to-br from-black/50 to-slate-100 p-4 sm:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
                   <div
-                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-green-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-600 rounded-sm flex items-center justify-center mb-4 sm:mb-6"
                     style={{
                       backgroundColor: colors.darkGray,
                       boxShadow: `0 4px 15px ${colors.lightGray}40`,
@@ -265,17 +265,17 @@ const StorySection = () => {
                   >
                     <GiReceiveMoney className="text-white" size={20} />
                   </div>
-                  <h4 className="gravesend-sans text-lg md:text-xl font-light text-slate-900 mb-2 md:mb-3">
+                  <h4 className="gravesend-sans text-lg sm:text-xl lg:text-2xl font-light text-slate-900 mb-2 sm:mb-3">
                     Financial Inclusion
                   </h4>
-                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                  <p className="gellix-font text-sm sm:text-base leading-relaxed text-slate-600">
                     Expanding access to opportunity
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-gray-200 to-slate-100 p-4 md:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
+                <div className="bg-gradient-to-br from-gray-200 to-slate-100 p-4 sm:p-6 lg:p-8 rounded-sm transform hover:scale-105 transition-all duration-300">
                   <div
-                    className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-orange-600 rounded-sm flex items-center justify-center mb-4 md:mb-6"
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-orange-600 rounded-sm flex items-center justify-center mb-4 sm:mb-6"
                     style={{
                       backgroundColor: colors.darkGray,
                       boxShadow: `0 4px 15px ${colors.lightGray}40`,
@@ -283,10 +283,10 @@ const StorySection = () => {
                   >
                     <GiFarmTractor className="text-white" size={20} />
                   </div>
-                  <h4 className="gravesend-sans text-lg md:text-xl font-bold text-slate-900 mb-2 md:mb-3">
+                  <h4 className="gravesend-sans text-lg sm:text-xl lg:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                     Trade & Agriculture
                   </h4>
-                  <p className="gellix-font text-sm md:text-base text-slate-600">
+                  <p className="gellix-font text-sm sm:text-base leading-relaxed text-slate-600">
                     Sustainable growth across markets
                   </p>
                 </div>
@@ -304,25 +304,25 @@ const PhilosophySection = () => {
   const scrollY = useScrollAnimation();
 
   return (
-    <section className="py-32 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block px-4 py-2 bg-white rounded-sm mb-6 shadow-lg">
-            <span className="gravesend-sans text-slate-600 text-sm font-light tracking-wide">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-block px-3 py-2 sm:px-4 bg-white rounded-sm mb-4 sm:mb-6 shadow-lg">
+            <span className="gravesend-sans text-slate-600 text-xs sm:text-sm font-light tracking-wide">
               OUR APPROACH
             </span>
           </div>
-          <h2 className="gravesend-sans text-5xl lg:text-6xl font-light text-slate-900 mb-8">
+          <h2 className="gravesend-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-4 sm:mb-6 lg:mb-8">
             Our Investment
             <span className="block text-slate-500">Philosophy</span>
           </h2>
-          <p className="gellix-font text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="gellix-font text-base sm:text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
             Our approach is anchored on three foundational pillars
           </p>
         </div>
 
         {/* Updated grid container for better alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-stretch">
           {[
             {
               title: "Localization",
@@ -349,21 +349,21 @@ const PhilosophySection = () => {
             const Icon = pillar.icon;
             return (
               <div key={index} className="group relative h-full flex">
-                <div className="bg-white rounded-sm p-10 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-slate-200 flex flex-col w-full">
+                <div className="bg-white rounded-sm p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border border-slate-200 flex flex-col w-full">
                   <div
-                    className="w-20 h-20 rounded-sm flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                    className="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-sm flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
                     style={{
                       backgroundColor: colors.darkGray,
                       boxShadow: `0 4px 15px ${colors.lightGray}40`,
                     }}
                   >
-                    <Icon className="text-white" size={32} />
+                    <Icon className="text-white" size={24} />
                   </div>
 
-                  <h3 className="gravesend-sans text-2xl font-light text-slate-900 mb-6 flex-shrink-0">
+                  <h3 className="gravesend-sans text-lg sm:text-xl lg:text-2xl font-light text-slate-900 mb-4 sm:mb-6 flex-shrink-0">
                     {pillar.title}
                   </h3>
-                  <p className="gellix-font text-slate-600 leading-relaxed flex-grow">
+                  <p className="gellix-font text-sm sm:text-base text-slate-600 leading-relaxed flex-grow">
                     {pillar.description}
                   </p>
                 </div>

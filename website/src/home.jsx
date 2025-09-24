@@ -177,7 +177,7 @@ const HomePage = () => {
         "Actively managing risk through structuring and diversification",
       image: "https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home12.jpg",
       alt: "African financial district skyline",
-      overlayGradient: `linear-gradient(135deg, ${colors.navy}ee 0%, ${colors.darkGray}cc 50%, ${colors.mediumGray}99 100%)`,
+      overlayGradient: ``,
     },
     {
       title: (
@@ -189,7 +189,7 @@ const HomePage = () => {
       subtitle: "Building long-term value for our stakeholders",
       image: "https://bard-santner.sgp1.cdn.digitaloceanspaces.com/acquirise/home11.jpg",
       alt: "African manufacturing and industrial activity",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkGray}ee 0%, ${colors.mediumGray}cc 50%, ${colors.gray}99 100%)`,
+      overlayGradient: ``,
     },
   ];
 
@@ -260,9 +260,9 @@ const HomePage = () => {
           style={{ background: slides[currentSlide].overlayGradient }}
         />
 
-        {/* Flowing Shadow Overlay */}
+        {/* Flowing Shadow Overlay 
         <HeroShadowOverlay />
-
+*/}
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-4xl space-y-3 sm:space-y-4 lg:space-y-6">

@@ -99,7 +99,7 @@ const InvesteeCompaniesPage = () => {
             >
               Holdings
             </span>
-            <h1 className="gravesend-sans text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-white mb-6 sm:mb-8 leading-tight px-2">
+            <h1 className="gellix-font text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light text-white mb-6 sm:mb-8 leading-tight px-2">
               Current
               <span className="block text-gray-300">Investments</span>
             </h1>
@@ -141,7 +141,7 @@ const InvesteeCompaniesPage = () => {
           {/* Section Header  */}
           <div className="text-center mb-12 sm:mb-16">
             <h2
-              className="gravesend-sans text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
+              className="gellix-font text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
               style={{ color: "#273848" }}
             >
               Holdings <span className="text-gray-500"></span>
@@ -222,7 +222,7 @@ const InvesteeCompaniesPage = () => {
           <div className="bg-white rounded-sm p-6 sm:p-8 lg:p-12 shadow-lg border border-gray-100 mx-2 sm:mx-0">
             <div className="text-center mb-8 sm:mb-12">
               <h3
-                className="gravesend-sans text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4"
+                className="gellix-font text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4"
                 style={{ color: "#273848" }}
               >
                 Investment <span className="text-gray-500">Focus</span>

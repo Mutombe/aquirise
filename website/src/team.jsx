@@ -163,7 +163,7 @@ const TeamLeadershipSection = () => {
           <div className="bg-white rounded-sm p-6 sm:p-8 lg:p-12 shadow-lg border border-gray-100 mx-2 sm:mx-0">
             <div className="text-center mb-8 sm:mb-12">
               <h3
-                className="gravesend-sans text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
+                className="gellix-font text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
                 style={{ color: "#273848" }}
               >
                 Our <span className="text-gray-500">Values</span>
@@ -466,7 +466,7 @@ const TeamSection = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div className="relative z-10 mb-8">
             <span
-              className="gravesend-sans font-light inline-block backdrop-blur-sm border px-3 py-2 sm:px-4 sm:py-2 rounded-sm text-xs sm:text-sm font-medium mb-4 sm:mb-6"
+              className="gellix-font font-light inline-block backdrop-blur-sm border px-3 py-2 sm:px-4 sm:py-2 rounded-sm text-xs sm:text-sm font-medium mb-4 sm:mb-6"
               style={{
                 backgroundColor: "rgba(39, 56, 72, 0.2)",
                 borderColor: "rgba(39, 56, 72, 0.3)",
@@ -475,7 +475,7 @@ const TeamSection = () => {
             >
               Our Team
             </span>
-            <h1 className="gravesend-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 sm:mb-8 leading-tight px-2">
+            <h1 className="gellix-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-white mb-6 sm:mb-8 leading-tight px-2">
               Leadership
               <span className="block text-gray-300">Excellence</span>
             </h1>

@@ -249,7 +249,7 @@ const ContactPage = () => {
               Contact Us
             </span>
             <h1
-              className="gravesend-sans font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light mb-6 sm:mb-8 leading-tight px-2"
+              className="gellix-font font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light mb-6 sm:mb-8 leading-tight px-2"
               style={{ color: colors.offWhite }}
             >
               Get in{" "}

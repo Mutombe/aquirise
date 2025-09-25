@@ -169,7 +169,7 @@ const HomePage1 = () => {
       title: (
         <>
           Capital Deployment with{" "}
-          <span style={{ color: colors1.silver }}>Local Insight</span>
+          <span style={{ color: colors1.silver }}><strong>Local Insight</strong></span>
         </>
       ),
       subtitle:
@@ -177,32 +177,32 @@ const HomePage1 = () => {
       image:
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       alt: "African business district with modern buildings",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 30%, ${colors.darkGray}99 50%)`,
+      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 10%, ${colors.darkGray}99 50%)`,
     },
     {
       title: (
         <>
           Risk Mitigation and{" "}
-          <span style={{ color: colors1.paleGray }}>Structuring</span>
+          <span style={{ color: colors1.silver }}><strong>Structuring</strong></span>
         </>
       ),
       subtitle:
         "Actively managing risk through structuring and diversification",
       image: "/risk.jpg",
       alt: "African financial district skyline",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 30%, ${colors.darkGray}99 50%)`,
+      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 10%, ${colors.darkGray}99 50%)`,
     },
     {
       title: (
         <>
           Sustainable Value{" "}
-          <span style={{ color: colors1.offWhite }}>Creation</span>
+          <span style={{ color: colors1.silver }}><strong>Creation</strong></span>
         </>
       ),
       subtitle: "Building long-term value for our stakeholders",
       image: "/utopia.jpg",
       alt: "African manufacturing and industrial activity",
-      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 30%, ${colors.darkGray}99 50%)`,
+      overlayGradient: `linear-gradient(135deg, ${colors.darkNavy}ee 0%, ${colors.navy}cc 10%, ${colors.darkGray}99 50%)`,
     },
   ];
 
@@ -273,8 +273,8 @@ const HomePage1 = () => {
           style={{ background: slides[currentSlide].overlayGradient }}
         />
 
-        {/* Flowing Shadow Overlay */}
-        <HeroShadowOverlay />
+        {/* Flowing Shadow Overlay 
+        <HeroShadowOverlay />*/}
 
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

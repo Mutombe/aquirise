@@ -457,7 +457,7 @@ const Navigation = () => {
                           }
                         }}
                       >
-                        <span className="gravesend-sans font-meduim relative z-10">
+                        <span className="gellix-font font-meduim relative z-10">
                           {item.name}
                         </span>
                       </Link>

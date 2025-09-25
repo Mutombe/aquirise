@@ -16,6 +16,7 @@ import DeRiskingPage from './derisking';
 import ValueCreationPage from './valuecreation';
 import CookieConsent from './cookieConsent';
 import PrivacyPolicy from './privacypolicy';
+import HomePage1 from './home/home';
 import { motion, AnimatePresence } from "framer-motion";
 
 const ScrollToTop = () => {
@@ -208,7 +209,7 @@ const PageWrapper = ({ children }) => {
 
 const AppContent = () => {
   return (
-    <div className="App">
+    <div className="gellix-font">
       <style jsx>{`
         @font-face {
           font-family: 'Gravesend Sans';
@@ -285,8 +286,7 @@ const AppContent = () => {
       <Navigation />
       <PageWrapper>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage1 />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/focus" element={<InvestmentFocusSection />} />
           <Route path="/holdings" element={<InvesteeCompaniesPage />} />
@@ -298,7 +298,7 @@ const AppContent = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<PrivacyPolicy />} />
           <Route path="/value-creation" element={<ValueCreationPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<HomePage1 />} />
         </Routes>
         <Footer />
       </PageWrapper>

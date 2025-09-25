@@ -21,12 +21,23 @@ const useScrollAnimation = () => {
   return scrollY;
 };
 
-
 const InvestmentFocusSection = () => {
   const scrollY = useScrollAnimation();
 
-  // Color palette
+  // Color palette - Updated with new brand colors
   const colors = {
+    darkNavy: "#001D39",
+    navy: "#0A4174",
+    darkGray: "#49769F",
+    mediumGray: "#4E8EA2",
+    gray: "#6EA2B3",
+    lightGray: "#7BBDE8",
+    paleGray: "#BDD8E9",
+    silver: "#E8F4F8",
+    offWhite: "#F5F9FB",
+  };
+
+  const colors1 = {
     darkNavy: "#1f2833",
     navy: "#273848",
     darkGray: "#2e3742",
@@ -42,21 +53,24 @@ const InvestmentFocusSection = () => {
     <section className="gellix-font relative py-12 sm:py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
       {/* Background Patterns */}
       <SharpSculpturalFlow />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="focus">
+
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        id="focus"
+      >
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2
             className="gellix-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6 leading-tight"
-            style={{ 
+            style={{
               color: colors.navy,
             }}
           >
-            Our <span style={{ color: colors.lightGray }}>Focus</span>
+            Our <span style={{ color: colors1.lightGray }}>Focus</span>
           </h2>
           <p
             className="gellix-font text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
-            style={{ 
-              color: colors.gray,
+            style={{
+              color: colors1.darkGray,
             }}
           >
             We are a catalyst for sustainable transformation by investing in
@@ -111,7 +125,10 @@ const InvestmentFocusSection = () => {
               style={{
                 borderLeft: `3px sm:border-l-4 solid ${item.borderColor}`,
                 boxShadow: `0 4px 15px ${item.shadowColor}20, 0 1px 4px ${item.shadowColor}10`,
-                transform: window.innerWidth > 768 ? `translateY(${scrollY * 0.02}px)` : 'none',
+                transform:
+                  window.innerWidth > 768
+                    ? `translateY(${scrollY * 0.02}px)`
+                    : "none",
               }}
               onClick={() => (window.location.href = "/about")}
             >
@@ -143,7 +160,7 @@ const InvestmentFocusSection = () => {
               </div>
               <h4
                 className="gellix-font text-lg sm:text-xl lg:text-2xl font-light mb-2 sm:mb-3 lg:mb-4 relative"
-                style={{ 
+                style={{
                   color: item.titleColor,
                 }}
               >
@@ -151,8 +168,8 @@ const InvestmentFocusSection = () => {
               </h4>
               <p
                 className="gellix-font text-sm sm:text-base leading-relaxed relative"
-                style={{ 
-                  color: colors.gray,
+                style={{
+                  color: colors1.darkGray,
                 }}
               >
                 {item.description}
@@ -187,10 +204,28 @@ const InvestmentFocusSection = () => {
               preserveAspectRatio="xMidYMid slice"
             >
               <defs>
-                <linearGradient id="section-wave" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor={colors.paleGray} stopOpacity="0.3" />
-                  <stop offset="50%" stopColor={colors.silver} stopOpacity="0.2" />
-                  <stop offset="100%" stopColor={colors.offWhite} stopOpacity="0.1" />
+                <linearGradient
+                  id="section-wave"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop
+                    offset="0%"
+                    stopColor={colors.paleGray}
+                    stopOpacity="0.3"
+                  />
+                  <stop
+                    offset="50%"
+                    stopColor={colors.silver}
+                    stopOpacity="0.2"
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor={colors.offWhite}
+                    stopOpacity="0.1"
+                  />
                 </linearGradient>
               </defs>
               <path
@@ -207,7 +242,7 @@ const InvestmentFocusSection = () => {
             </svg>
           </div>
 
-          <div className="relative z-10">
+          <div className="bg-white/95relative z-10">
             <div className="text-center mb-6 sm:mb-8 lg:mb-12">
               <h4
                 className="gellix-font text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 lg:mb-4"
@@ -220,7 +255,7 @@ const InvestmentFocusSection = () => {
                 <span
                   style={{
                     color: colors.lightGray,
-                    background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
+                    background: `linear-gradient(135deg, ${colors1.lightGray} 0%, ${colors1.paleGray} 100%)`,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -234,100 +269,85 @@ const InvestmentFocusSection = () => {
               <div
                 className="w-12 sm:w-16 lg:w-20 h-0.5 mx-auto mb-2 sm:mb-3 lg:mb-4"
                 style={{
-                  background: `linear-gradient(90deg, transparent 0%, ${colors.mediumGray} 50%, transparent 100%)`,
+                  background: `white`,
                 }}
               />
 
               <p
                 className="gellix-font text-base sm:text-lg lg:text-xl px-4 sm:px-0"
                 style={{
-                  color: colors.gray,
+                  color: colors1.darkGray,
                   textShadow: `0 1px 2px ${colors.offWhite}60`,
                 }}
               >
                 We focus on{" "}
-                <span style={{ color: colors.darkGray, fontWeight: "500" }}>
+
                   high-growth sectors
-                </span>{" "}
+                {" "}
                 with{" "}
-                <span style={{ color: colors.mediumGray, fontWeight: "500" }}>
+
                   strong fundamentals
-                </span>
+      
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 xl:gap-8">
+            <div className="bg-white grid grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   name: "Financial Services",
                   image:
-                    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.darkNavy,
+                    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Healthcare",
-                  image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.navy,
+                  image:
+                    "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Technology",
                   image:
-                    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.darkGray,
+                    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Infrastructure",
                   image:
-                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.mediumGray,
+                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Agriculture",
                   image:
-                    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.gray,
+                    "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Education",
-                  image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.darkNavy,
+                  image:
+                    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Real Estate",
                   image:
-                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.navy,
+                    "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
                 {
                   name: "Energy",
                   image:
-                    "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-                  overlay: colors.darkGray,
+                    "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
                 },
               ].map((sector, index) => (
                 <div
                   key={index}
-                  className="relative text-center rounded-sm shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-24 sm:h-28 lg:h-32 flex items-center justify-center group touch-manipulation"
+                  className="relative group overflow-hidden rounded-lg h-32 hover:shadow-lg transition-all duration-300"
                 >
-                  {/* Background Image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${sector.image})` }}
+                  <img
+                    src={sector.image}
+                    alt={sector.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-
-                  {/* Gradient Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-70 group-hover:opacity-80 transition-opacity duration-300"
-                    style={{
-                      background: `linear-gradient(135deg, ${sector.overlay} 0%, ${sector.overlay}dd 50%, ${sector.overlay}99 100%)`,
-                    }}
-                  />
-
-                  {/* Text */}
-                  <div 
-                    className="gellix-font relative z-10 font-medium text-white group-hover:scale-105 transition-transform duration-300 drop-shadow-lg text-sm sm:text-base px-2"
-                  >
-                    {sector.name}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h5 className="text-white font-semibold text-sm lg:text-base">
+                      {sector.name}
+                    </h5>
                   </div>
                 </div>
               ))}

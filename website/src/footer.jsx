@@ -55,7 +55,7 @@ const Footer = () => {
                 className="w-28 sm:w-32 h-auto"
               />
             </div>
-            <p className="gellix-font text-slate-300 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-md">
+            <p className="gellix-font text-white text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-md">
               Deploying proprietary capital intelligently by leveraging deep,
               on-the-ground knowledge across Sub-Saharan Africa. Building
               sustainable value for all stakeholders.
@@ -79,7 +79,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="gellix-font text-slate-300 hover:text-white transition-all duration-300 flex items-center group text-sm sm:text-base"
+                    className="gellix-font text-white hover:text-white transition-all duration-300 flex items-center group text-sm sm:text-base"
                   >
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {link.text}
@@ -105,7 +105,7 @@ const Footer = () => {
                 >
                   <FaMapLocationDot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className="gellix-font text-slate-300 text-sm sm:text-base">
+                <div className="gellix-font text-white text-sm sm:text-base">
                   <p className="font-medium text-white mb-1">Head Office</p>
                   <p>2nd Floor Exchange House</p>
                   <p>54-62 Athol Street</p>

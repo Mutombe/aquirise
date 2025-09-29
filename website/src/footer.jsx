@@ -56,9 +56,17 @@ const Footer = () => {
               />
             </div>
             <p className="gellix-font text-white text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-md">
-              Deploying proprietary capital intelligently by leveraging deep,
-              on-the-ground knowledge across Sub-Saharan Africa. Building
-              sustainable value for all stakeholders.
+              Acquirise deploys proprietary capital guided by local market
+              understanding across Sub-Saharan Africa, supporting initiatives
+              that strengthen governance, execution and durable value creation.
+            </p>
+            <p className="gellix-font text-white text-sm sm:text-base">
+              Acquirise is a private investment company. This website provides
+              general information only and does not constitute an offer to sell
+              or a solicitation to buy any security, service, or product.
+              Acquirise does not provide investment advice or brokerage/trading
+              services to the public. Any third-party marks remain the property
+              of their owners.
             </p>
           </div>
 
@@ -121,7 +129,7 @@ const Footer = () => {
                 >
                   <MdMarkEmailRead className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className="gellix-font text-slate-300 text-sm sm:text-base">
+                <div className="gellix-font text-white text-sm sm:text-base">
                   <p className="font-medium text-white mb-1">Email Us</p>
                   <a
                     href="mailto:info@acquirise.com"
@@ -140,7 +148,7 @@ const Footer = () => {
                 >
                   <LuPhoneCall className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                <div className="gellix-font text-slate-300 text-sm sm:text-base">
+                <div className="gellix-font text-white text-sm sm:text-base">
                   <p className="font-medium text-white mb-1">Call Us</p>
                   <p>Phone: +44 1624 123456</p>
                   <p>Fax: +44 1624 123457</p>
@@ -163,7 +171,7 @@ const Footer = () => {
               >
                 <BsBrowserChrome className="w-4 h-4 text-white" />
               </div>
-              <span className="gellix-font text-slate-300 text-center">
+              <span className="gellix-font text-white text-center">
                 Botswana | Mauritius | South Africa | Zambia | Zimbabwe
               </span>
             </div>

@@ -104,8 +104,8 @@ const InvesteeCompaniesPage = () => {
               <span className="block text-gray-300">Investments</span>
             </h1>
             <p className="gellix-font text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed px-4">
-              Discover how we drive sustainable growth and innovation across
-              Africa
+              An overview of selected holdings in which we have an ownership
+              interest.
             </p>
           </div>
 
@@ -150,8 +150,7 @@ const InvesteeCompaniesPage = () => {
               className="gellix-font text-lg sm:text-xl max-w-3xl mx-auto px-4"
               style={{ color: "rgba(0, 0, 0, 0.5)" }}
             >
-              Strategic investments in innovative companies driving
-              transformation across key sectors
+              Holdings in companies operating across selected sectors
             </p>
           </div>
 

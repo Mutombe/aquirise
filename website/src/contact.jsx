@@ -252,56 +252,27 @@ const ContactPage = () => {
               className="gellix-font font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light mb-6 sm:mb-8 leading-tight px-2"
               style={{ color: colors.offWhite }}
             >
-              Get in{" "}
+              General{" "}
               <span
                 style={{
                   color: colors.silver,
                   textShadow: `0 0 20px ${colors.silver}40`,
                 }}
               >
-                Touch
+                Enquiries
               </span>
             </h1>
             <p
               className="gellix-font text-base sm:text-lg lg:text-xl max-w-4xl mx-auto leading-relaxed px-4 font-light"
               style={{ color: colors.paleGray }}
             >
-              We may consider or invite aligned partners to co-invest on a
-              deal-by-deal basis
+              For general information about Acquirise, please contact us using
+              the details below. We do not offer products or accept investments
+              from the public.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 px-4">
-            <button
-              className="font-light inline-flex items-center space-x-3 px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group"
-              onClick={() =>
-                document
-                  .getElementById("contact-section")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              style={{
-                background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
-                color: colors.darkNavy,
-                boxShadow: `0 10px 40px ${colors.darkNavy}30`,
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = `linear-gradient(135deg, ${colors.paleGray} 0%, ${colors.silver} 100%)`;
-                e.target.style.transform = "scale(1.05) translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`;
-                e.target.style.transform = "scale(1)";
-              }}
-            >
-              <span className="gellix-font font-light font-medium text-sm">
-                Contact Us Now
-              </span>
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform duration-300"
-              />
-            </button>
-
             <button
               className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 rounded-sm transition-all duration-300 transform hover:scale-105 border-2 backdrop-blur-sm group"
               onClick={() =>

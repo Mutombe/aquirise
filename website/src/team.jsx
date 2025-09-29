@@ -226,28 +226,6 @@ const TeamLeadershipSection = () => {
               ))}
             </div>
           </div>
-
-          {/* Contact CTA */}
-          <div className="text-center mt-12 sm:mt-16">
-            <button
-              className="gellix-font font-light inline-flex items-center space-x-3 px-8 py-4 text-white rounded-sm hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
-              onClick={() =>
-                document
-                  .getElementById("story")
-                  .scrollIntoView({ behavior: "smooth" })
-              }
-              style={{
-                background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
-                color: colors.darkNavy,
-              }}
-            >
-              <span>Contact Our Team</span>
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
-          </div>
         </div>
       </section>
     </>
@@ -480,9 +458,9 @@ const TeamSection = () => {
               <span className="block text-gray-300">Excellence</span>
             </h1>
             <p className="gellix-font text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed px-4">
-              As a principal investing firm, Acquirise aligns its own capital
-              with a seasoned team that blends investment discipline and
-              regional expertise.
+              Acquirise invests its own balance-sheet capital and is guided by a
+              seasoned team combining disciplined investing and local market
+              knowledge
             </p>
           </div>
 

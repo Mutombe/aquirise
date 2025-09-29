@@ -114,15 +114,15 @@ const HeroSection = () => {
             </div>
 
             <h1 className="gellix-font font-light text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
-              Investors in
+              Building
               <span className="block text-transparent bg-clip-text bg-gray-300">
-                Real-World Solutions
+                Durable Value
               </span>
             </h1>
 
             <p className="gellix-font font-light text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
-              Proprietary capital that catalyses progress across Sub-Saharan
-              Africa
+              Using proprietary capital and local insight to support businesses
+              that deliver practical solutions across Sub-Saharan Africa.
             </p>
           </div>
 
@@ -180,20 +180,14 @@ const StorySection = () => {
 
             <div className="gellix-font space-y-4 sm:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed text-slate-600">
               <p>
-                We are a private investment company that deploys our own
-                proprietary, patient capital into realworld solutions. Founded
-                on the belief that capital should catalyse progress and not just
-                chase yield, we back private ventures across Sub-Saharan Africa
-                that solve material problems and can scale.
+                Acquirise is a private investment company. We invest our own
+                capital in operating businesses in Sub-Saharan Africa and
+                support them with governance and execution.
               </p>
               <p>
-                Our approach is thematic and hands-on. We invest balance-sheet
-                capital in high-potential businesses across infrastructure,
-                agriculture, trade, healthcare and financial inclusion,
-                structuring majority or constructive minority positions without
-                fund-life constraints. By aligning proprietary capital with
-                execution, we aim to compound attractive returns while
-                delivering measurable realeconomy benefits.
+                We focus on a small number of sectors taking majority or
+                constructive minority stakes. Our role is hands-on and
+                long-term.
               </p>
             </div>
 
@@ -205,7 +199,7 @@ const StorySection = () => {
               }}
               onClick={() => (window.location.href = "/investee-companies")}
             >
-              <span>View Our Portfolio</span>
+              <span>View our Holdings</span>
               <ArrowRight
                 size={16}
                 className="group-hover:translate-x-1 transition-transform sm:w-[18px] sm:h-[18px]"
@@ -327,21 +321,21 @@ const PhilosophySection = () => {
             {
               title: "Localization",
               description:
-                "We deploy capital with deep local insight, working closely with partners who understand the nuances of their markets. This grounded approach allows us to identify underappreciated opportunities and navigate complexity with precision.",
+                "We pair proprietary capital with local insight, collaborating with experienced partners who understand regulatory, cultural and operating nuances. This enables disciplined selection, prudent structuring and effective delivery.",
               icon: SiLocal,
               color: "blue",
             },
             {
               title: "De-risking",
               description:
-                "We actively manage risk through robust structuring and diversification, safeguarding our capital while enabling flexibility in dynamic environments. Our strategies are built to absorb shocks and preserve value.",
+                "We combine staged funding tied to milestones, ring-fenced vehicles where appropriate, and diversified exposures to reduce downside risk. These measures help sustain operations through volatility and protect long-term value.",
               icon: SiWebmoney,
               color: "purple",
             },
             {
               title: "Value Creation",
               description:
-                "Beyond capital, we bring strategic partnership, operational insight and governance support to help ventures scale and thrive. We are committed to building long-term value for our stakeholders and the communities they serve.",
+                "We pair proprietary capital with hands-on support to help ventures scale responsibly. The objective is durable value for shareholders, employees and local communities.",
               icon: GiTakeMyMoney,
               color: "green",
             },

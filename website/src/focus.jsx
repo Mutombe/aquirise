@@ -73,11 +73,11 @@ const InvestmentFocusSection = () => {
               color: colors1.darkGray,
             }}
           >
-            We are a catalyst for sustainable transformation by investing in
-            businesses that solve real problems across key sectors. We adopt a
-            thematic, impact-driven approach, targeting scalable ventures that
-            achieve both exceptional returns and tangible developmental
-            outcomes.
+            Acquirise invests its own capital in businesses that address clear,
+            real-world needs in selected sectors. We work alongside portfolio
+            teams to strengthen governance and execution. The information
+            provided here is descriptive of our activities and is not an
+            invitation to invest.
           </p>
         </div>
 
@@ -280,14 +280,7 @@ const InvestmentFocusSection = () => {
                   textShadow: `0 1px 2px ${colors.offWhite}60`,
                 }}
               >
-                We focus on{" "}
-
-                  high-growth sectors
-                {" "}
-                with{" "}
-
-                  strong fundamentals
-      
+                We focus on high-growth sectors with strong fundamentals
               </p>
             </div>
 

@@ -197,7 +197,7 @@ const StorySection = () => {
                 background: `linear-gradient(135deg, ${colors.lightGray} 0%, ${colors.paleGray} 100%)`,
                 color: colors.darkNavy,
               }}
-              onClick={() => (window.location.href = "/investee-companies")}
+              onClick={() => (window.location.href = "/holdings")}
             >
               <span>View our Holdings</span>
               <ArrowRight

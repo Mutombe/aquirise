@@ -213,7 +213,7 @@ const Navigation = () => {
         },
       ]
     },
-    { name: "Holdings", id: "holdings", path: "/holdings" },
+    //{ name: "Holdings", id: "holdings", path: "/holdings" },
     { name: "Team", id: "team", path: "/team" },
     { name: "Contact", id: "contact", path: "/contact" },
   ];

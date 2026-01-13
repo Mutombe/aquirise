@@ -185,7 +185,7 @@ const Footer = () => {
         <div className="border-t border-slate-800 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="gellix-font text-slate-400 text-center sm:text-left text-sm sm:text-base">
-              © 2025 Acquirise Limited. All rights reserved.
+              &copy; {new Date().getFullYear()} Acquirise Limited. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 text-slate-400 text-sm sm:text-base">
               <a
